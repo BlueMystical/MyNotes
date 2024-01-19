@@ -1,0 +1,345 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PrintRichTextBox
+</name>
+</assembly>
+<members>
+<member name="T:PrintRichTextBox.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:PrintRichTextBox.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:PrintRichTextBox.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="F:PrintRichTextBox.PrintRichTextBox.SelectionMargin">
+ <summary>
+ Width of left-side "selection margin" for highlighting whole lines
+ when a RichTextBox's ShowSelection property is True
+ </summary>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.Print(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PrintDocument,PrintRichTextBox.PrintRichTextBox.WhichPages,System.Int32[])">
+ <summary>
+ Print RichTextBox contents or a range of pages thereof
+ </summary>
+ <param name="PrintDocument">Instance of PrintDocument</param>
+ <param name="WhichPages">Whether to print all pages in range (default),
+ odd only, or even only</param>
+ <param name="PageList">Array of pages in rage that may be printed
+ (defaults to all pages in range)</param>
+ <remarks>NOTES:<br></br>
+ 1. If both WhichPages AND PageList are included, then any page
+    in the range must both be in the list and be the right type (odd/even)<br></br>
+ 2. If no pages qualify, then nothing is printed</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.PrintPreview(System.Windows.Forms.RichTextBox,System.Windows.Forms.PrintPreviewDialog,PrintRichTextBox.PrintRichTextBox.WhichPages,System.Int32[])">
+ <summary>
+ Preview RichTextBox contents or a range of pages thereof to be printed
+ </summary>
+ <param name="PrintPreviewDialog">Instance of PrintPreviewDialog</param>
+ <param name="WhichPages">Whether to print all pages in range (default),
+ odd only, or even only</param>
+ <param name="PageList">Array of pages in rage that may be printed
+ (defaults to all pages in range)</param>
+ <returns>Result of Print Preview dialog</returns>
+ <remarks>NOTES:<br></br>
+ 1. If both WhichPages AND PageList are included, then any page
+    in the range must both be in the list and be the right type (odd/even)<br></br>
+ 2. If no pages qualify, then nothing is previewed,
+    and DialogResult.None is returned</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.PageIndexes(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PrintDocument)">
+ <summary>
+ Get array of indexes for beginnings of pages
+ </summary>
+ <param name="PrintDocument">Instance of PrintDocument</param>
+ <returns></returns>
+ <remarks>Pages are measured according to PrintDocument.DefaultPageSettings;
+ no print job is performed. There is always at least one index (array element)
+ returned, and the first index is always 0, representing the beginning of all text.
+ </remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetRightMarginToPrinterWidth(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PageSettings,System.Boolean)">
+ <summary>
+ Set RightMargin property of RichTextBox to width of printer page
+ (within horizontal margins)
+ so that text wraps at the same position in the text box as on the printer
+ </summary>
+ <param name="PageSettings">Instance of PageSettings</param>
+ <param name="MakeExact">True (default) to set printer-width back to
+ calculated right-margin (to adjust for conversion errors and make sure
+ that word-wrap line breaks are the same on screen and page), False
+ to make no after-adjustments</param>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetPrinterWidthToRightMargin(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PageSettings,System.Boolean)">
+ <summary>
+ Set PageSettings right margin to RichTextBox's RightMargin value
+ (or maximum line width if RightMargin is 0 or negative)
+ so that text wraps at the same position on the printer as in the text box
+ </summary>
+ <param name="PageSettings">Instance of PageSettings</param>
+ <param name="MakeExact">True (default) to set right-margin back to
+ calculated printer-width (to adjust for conversion errors and make sure
+ that word-wrap line breaks are the same on screen and page), False
+ to make no after-adjustments</param>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetScrollPosition(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Get scroll position of RichTextBox
+ </summary>
+ <returns>Point structure containing current horizontal (.x)
+ and vertical (.y) scroll positions in pixels</returns>
+ <remarks></remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetScrollPosition(System.Windows.Forms.RichTextBox,System.Drawing.Point)">
+ <summary>
+ Set scroll position of RichTextBox
+ </summary>
+ <param name="RichTextBox"></param>
+ <param name="RTBScrollPoint">Point structure containing new horizontal (.x)
+ and vertical (.y) scroll positions in pixels</param>
+ <remarks></remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetScrollBarInfo(System.Windows.Forms.RichTextBox,PrintRichTextBox.PrintRichTextBox.ScrollBarType,PrintRichTextBox.PrintRichTextBox.ScrollBarMask)">
+ <summary>
+ Get information about a RichTextBox scroll bar
+ </summary>
+ <param name="ScrollBarType">ScrollBarType value (.Horizontal or .Vertical)</param>
+ <param name="ScrollBarMask">ScrollBarMask flags indicating what to get
+ (range, page size, position, track position; defaults to everything)</param>
+ <returns>ScrollInfo structure with requested info</returns>
+ <remarks></remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetMaximumWidth(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Get effective maximum text width of RichTextBox in pixels
+ </summary>
+ <returns>Maximum available physical width for any text.
+ (-1 if we're in a recursive loop--see remarks)</returns>
+ <remarks>This value is calculated as follows:<br></br>
+ 1. If control's RightMargin propert is non-zero, then that us used<br></br>
+ 2. Otherwise, if WordWrap is True, then the control's client-area width
+    minus any left-edge "selection" margin is used<br></br>
+ 3. Otherwise, if horizontal scrollbars are enabled, then the "maximum horizontal
+    scroll position" plus the client width, or the width of the longest physical line,
+    whichever is longer, is used<br></br>
+ 4. Otherwise, the width of the longest physical line is uesd</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.FullSelectionLength(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Gets full length of selected text, including any hidden text
+ </summary>
+ <param name="RichTextBox"></param>
+ <returns>Full length of selection</returns>
+ <remarks>This is different from the SelectionLength property only when
+ the host program is targeted for .NET 4.7 or later and hidden text is present
+ in document</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.ExtendedText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Gets full plain text of rich-text box (or selection thereof),
+ including any hidden text
+ </summary>
+ <param name="SelectionOnly">True to get only selected text,
+ False (default) to get entire text</param>
+ <returns>Full plain text, be it entire document or selection</returns>
+ <remarks>This is different from the Text or SelectedText property only when
+ the host program is targeted for .NET 4.7 or later and hidden text is present
+ in document</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.ExtendedFind(System.Windows.Forms.RichTextBox,System.String,System.Int32,System.Int32,System.Windows.Forms.RichTextBoxFinds)">
+ <summary>
+ extended version of Find method--is reliable even when hidden text is in document
+ (overload 1 of 2--search for string)
+ </summary>
+ <param name="SearchText">String to search for</param>
+ <param name="StartPos">Starting position (if EndPos is ommitted)
+ or beginning of range (if EndPos is included) of search</param>
+ <param name="EndPos">End of range of search (if included),
+ may be -1 to indicate end of document</param>
+ <param name="options">RichTextBoxFinds search options</param>
+ <returns>Index of first matching string found, -1 if none found</returns>
+ <remarks>This is functionally different from the regular Find method only
+ when the host program is targeted for .NET 4.7 or later and hidden text
+ is present in document</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.ExtendedFind(System.Windows.Forms.RichTextBox,System.Char[],System.Int32,System.Int32,System.Boolean)">
+ <summary>
+ extended version of Find method--is reliable even when hidden text is in document
+ (overload 2 of 2--search for any of a series of characters)
+ </summary>
+ <param name="SearchChars">Characters to search for</param>
+ <param name="StartPos">Starting position (if EndPos is ommitted)
+ or beginning of range (if EndPos is included) of search</param>
+ <param name="EndPos">End of range of search (if included),
+ may be -1 to indicate end of document</param>
+ <param name="Reverse">True to search backwards, False (default)
+ to search forwards</param>
+ <returns>Index of first matching character found, -1 if none found</returns>
+ <remarks>This is functionally different from the regular Find method only
+ when the host program is targeted for .NET 4.7 or later and hidden text
+ is present in document, or when one chooses to search BACKWARDS for
+ characters in document</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.ContainsProtectedText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Determine if ANY text in a rich-text box (or the selected region thereof)
+ is protected
+ </summary>
+ <param name="SelectionOnly">True to check only selected text,
+ False (default) to check entire text</param>
+ <returns>True if any text in question is protected, False if not</returns>
+ <remarks>This differs from the SelectionProtected property
+ in the following ways:<br></br>
+ 1. It can be used for either selected text or all text<br></br>
+ 2. It is not necessary for all text in question to be protected--
+    only some of it--for this method to return True</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.ContainsHiddenText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Determine if ANY text in a rich-text box (or the selected region thereof)
+ is hidden (marked as invisible)
+ </summary>
+ <param name="SelectionOnly">True to check only selected text,
+ False (default) to check entire text</param>
+ <returns>True if any text in question is hidden, False if not</returns>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetListStyle(System.Windows.Forms.RichTextBox,PrintRichTextBox.PrintRichTextBox.RTBListStyle,System.Int32,PrintRichTextBox.PrintRichTextBox.RTBNumberingSyntax,System.Int32)">
+ <summary>
+ Mark selected text in RichTextBox as a list, using a given leader style, a given
+ starting number, a given numbering syntax, and a given indentation (all optional)
+ </summary>
+ <param name="ListStyle">Style of paragraph leaders (no leader, bullets, Arabic
+ numbers, lowercase letters, uppercase letters, lowercase Roman numerals, or uppercase
+ Roman numerals; defaults to numbers)</param>
+ <param name="StartingNumber">Number of item for BEGINNING of list with given leader
+ style (0 - 65535 [&amp;HFFFF]; defaults to 1)</param>
+ <param name="NumberingSyntax">Syntax for paragraph leader (surround in parentheses
+ [i.e., "(1)"], follow with right parenthesis ["1)"], follow with period ["1."], or
+ give plain ["1"]; defaults to period)</param>
+ <param name="Indentation">Indentation in pixels of left edge of paragraph proper from
+ left edge of paragraph leader; defaults to minimum allowed value</param>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetListStyle(System.Windows.Forms.RichTextBox,System.Int32@,System.Int32@,System.Int32@)">
+ <summary>
+ Get listing attributes of selected text; returns leader style--and can
+ optionally return (as variables passed by reference) starting number, numbering
+ syntax, and/or indentation)--for paragraph at caret or first selected paragraph
+ </summary>
+ <param name="StartingNumber">Item number for BEGINNING OF LIST using leader-style at
+ caret or beginning of selection</param>
+ <param name="NumberingSyntax">Snytax of paragraph leaders (surrounded by parentheses
+ [i.e., "(1)"], followed by right parenthesis ["1)"], followed by period ["1."], or
+ given plain ["1"])</param>
+ <param name="Indentation">Indentation in pixels of left edge of paragraph proper from
+ left edge of paragraph leader (0 means minimum allowed value is being used)</param>
+ <returns>Style of paragraph leader (no leader, bullets, Arabic numbers, lowercase
+ letters, uppercase letters, lowercase Roman numerals, uppercase Roman numerals)</returns>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetAlignment(System.Windows.Forms.RichTextBox,PrintRichTextBox.PrintRichTextBox.RTBAlignment)">
+ <summary>
+ Sets horizontal alignment of selected text; differs from setting SelectionAlignment
+ property in that full justification (rich edit version 3.0 or higher only) is an option
+ </summary>
+ <param name="Alignment">Horizontal alignment (left, right, center, or full-justify)</param>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetAlignment(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Gets horizontal alignment of selected text; differs from reading SelectionAlignment property
+ in that full justification (rich edit version 3.0 or higher only) is a possible value and
+ that, if multiple paragraphs are selected with differing alignments, then the value for the
+ first paragraph in the selection, rather than HorizontalAlignment.Left, is returned
+ </summary>
+ <returns>Horizontal alignment (left, right, center, or fully-justified) at carat (if no selection)
+ or of first selected paragraph (if selection)</returns>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.UseAdvancedTypographyOnText(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Set text in rich-text box to use advanced typography (rich edit version 3.0 or higher only)
+ </summary>
+ <remarks>This is recommend for usage after loading or setting RTF text that contains
+ advanced formatting, such as full-justification</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetScriptStyle(System.Windows.Forms.RichTextBox,PrintRichTextBox.PrintRichTextBox.RTBScriptStyle)">
+ <summary>
+ Set selected text to superscript
+ </summary>
+ <param name="ScriptStyle">Superscript (positive), subscript (negative), or normal (0)</param>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.GetScriptStyle(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Determine whether selected text is superscript, subscript, or normal
+ </summary>
+ <returns>Superscript (+1), subscript (-1), or nrmal (0)</returns>
+ <remarks>If script-formatting in selection is mixed, then the value at the caret
+ (begining or end of selection, depending on the direction of user selection) is returned</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.EscapedRTFText(System.Windows.Forms.RichTextBox,System.String)">
+ <summary>
+ Convert plain-text string into RTF string
+ </summary>
+ <param name="PlainText">Plain-text string</param>
+ <returns>String with special characters (i.e., "{", "\", "}", non-ASCII) escaped
+ </returns>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.InsertRtf(System.Windows.Forms.RichTextBox,System.String,System.Int32)">
+ <summary>
+ Insert RTF text into rich-text box at a given position
+ </summary>
+ <param name="RtfTextToInsert">RTF-format text to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>This is the "safe" way to insert, as it accounts for "template RTF"
+ that's expected in any inserted RTF text</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.InsertImage(System.Windows.Forms.RichTextBox,System.Drawing.Image,System.Int32)">
+ <summary>
+ Insert image (bitmap or metafile) into the RichTextBox at a given position
+ </summary>
+ <param name="image">Image to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>
+ The image is first wrapped in a Windows Format Metafile, then written in RTF
+ format to the control using hex strings. The WMF is required because, although
+ RTF 1.6 says one can insert numerous image formats directly into an RTF document,
+ this control ignores it without the wrapper.
+ </remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.InsertIcon(System.Windows.Forms.RichTextBox,System.Drawing.Icon,System.Int32)">
+ <summary>
+ Insert icon into the RichTextBox at a given position
+ </summary>
+ <param name="icon">Icon to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>The icon is converted into a bitmap, using RichTextBox.SelectionBackColor
+ as the transparent color, unless that value is Color.Empty (multiple background colors
+ in selection), in which case RichTextBox.BackColor is used. The resulting bitmap is
+ then wrapped in a Windows Format Metafile, then written in RTF format to the control
+ using hex strings. The WMF is required because, although RTF 1.6 says one can insert
+ numerous image formats directly into an RTF document, this control ignores it without
+ the wrapper.</remarks>
+</member>
+<member name="M:PrintRichTextBox.PrintRichTextBox.SetRedrawMode(System.Windows.Forms.Control,System.Boolean)">
+ <summary>
+ Turns on or off redrawing of rich-text box
+ This can be used to make multiple changes to the text box while preventing
+ the intermediate rendering that would cause flicker
+ </summary>
+ <param name="OnOrOff">True to activate auto-redraw, False to deactivate it</param>
+ <remarks>Specifying True forces the cumulative results
+ of previous operations to be rendered</remarks>
+</member>
+</members>
+</doc>

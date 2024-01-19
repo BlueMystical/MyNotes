@@ -1,0 +1,1715 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RichTextBoxEx
+</name>
+</assembly>
+<members>
+<member name="T:RichTextBoxEx.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.BackgroundColor_326_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Bold_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Centered_11691_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Collapse_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Find_5650_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.FindNext_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.FindPrevious_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.FindResults1_6264_321">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.FontColor_11146_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.FontDialogControl_679_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.ForegroundColor_325_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Image_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.InsertHyperlinkHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Italic_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Justify_11694_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Justify_11694_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.l_indent_pos_lower">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.l_indet_pos_upper">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.LeftJustify_11695_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.NumberedBullets_11696_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.r_indent_pos">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.RightJustify_11699_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.SpellingCheck_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.StrikeThrough_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Subscript_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.Superscript_16x">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.SymbolHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resources.tab_pos">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:RichTextBoxEx.My.Resources.Resource1">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.First_Line_Indent">
+<summary>
+  Looks up a localized string similar to First Line Indent.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Hanging_Indent">
+<summary>
+  Looks up a localized string similar to Hanging Indent.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Left_Indents">
+<summary>
+  Looks up a localized string similar to Left Indents.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Left_Margin">
+<summary>
+  Looks up a localized string similar to Left Margin.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Right_Indent">
+<summary>
+  Looks up a localized string similar to Right Indent.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Right_Margin">
+<summary>
+  Looks up a localized string similar to Right Margin.
+</summary>
+</member>
+<member name="P:RichTextBoxEx.My.Resources.Resource1.Tab">
+<summary>
+  Looks up a localized string similar to Tab.
+</summary>
+</member>
+<member name="T:RichTextBoxEx.frmListStyles">
+ <summary>
+ Property page for handling paragraph leader styles
+ </summary>
+</member>
+<member name="T:RichTextBoxEx.ListStyleEditor">
+ <summary>
+ Editor for property page above
+ </summary>
+</member>
+<member name="F:RichTextBoxEx.PrintRichTextBox.SelectionMargin">
+ <summary>
+ Width of left-side "selection margin" for highlighting whole lines
+ when a RichTextBox's ShowSelection property is True
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.Print(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PrintDocument,RichTextBoxEx.PrintRichTextBox.WhichPages,System.Int32[])">
+ <summary>
+ Print RichTextBox contents or a range of pages thereof
+ </summary>
+ <param name="PrintDocument">Instance of PrintDocument</param>
+ <param name="WhichPages">Whether to print all pages in range (default),
+ odd only, or even only</param>
+ <param name="PageList">Array of pages in rage that may be printed
+ (defaults to all pages in range)</param>
+ <remarks>NOTES:<br></br>
+ 1. If both WhichPages AND PageList are included, then any page
+    in the range must both be in the list and be the right type (odd/even)<br></br>
+ 2. If no pages qualify, then nothing is printed</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.PrintPreview(System.Windows.Forms.RichTextBox,System.Windows.Forms.PrintPreviewDialog,RichTextBoxEx.PrintRichTextBox.WhichPages,System.Int32[])">
+ <summary>
+ Preview RichTextBox contents or a range of pages thereof to be printed
+ </summary>
+ <param name="PrintPreviewDialog">Instance of PrintPreviewDialog</param>
+ <param name="WhichPages">Whether to print all pages in range (default),
+ odd only, or even only</param>
+ <param name="PageList">Array of pages in rage that may be printed
+ (defaults to all pages in range)</param>
+ <returns>Result of Print Preview dialog</returns>
+ <remarks>NOTES:<br></br>
+ 1. If both WhichPages AND PageList are included, then any page
+    in the range must both be in the list and be the right type (odd/even)<br></br>
+ 2. If no pages qualify, then nothing is previewed,
+    and DialogResult.None is returned</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.PageIndexes(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PrintDocument)">
+ <summary>
+ Get array of indexes for beginnings of pages
+ </summary>
+ <param name="PrintDocument">Instance of PrintDocument</param>
+ <returns></returns>
+ <remarks>Pages are measured according to PrintDocument.DefaultPageSettings;
+ no print job is performed. There is always at least one index (array element)
+ returned, and the first index is always 0, representing the beginning of all text.
+ </remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetRightMarginToPrinterWidth(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PageSettings,System.Boolean)">
+ <summary>
+ Set RightMargin property of RichTextBox to width of printer page
+ (within horizontal margins)
+ so that text wraps at the same position in the text box as on the printer
+ </summary>
+ <param name="PageSettings">Instance of PageSettings</param>
+ <param name="MakeExact">True (default) to set printer-width back to
+ calculated right-margin (to adjust for conversion errors and make sure
+ that word-wrap line breaks are the same on screen and page), False
+ to make no after-adjustments</param>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetPrinterWidthToRightMargin(System.Windows.Forms.RichTextBox,System.Drawing.Printing.PageSettings,System.Boolean)">
+ <summary>
+ Set PageSettings right margin to RichTextBox's RightMargin value
+ (or maximum line width if RightMargin is 0 or negative)
+ so that text wraps at the same position on the printer as in the text box
+ </summary>
+ <param name="PageSettings">Instance of PageSettings</param>
+ <param name="MakeExact">True (default) to set right-margin back to
+ calculated printer-width (to adjust for conversion errors and make sure
+ that word-wrap line breaks are the same on screen and page), False
+ to make no after-adjustments</param>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetScrollPosition(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Get scroll position of RichTextBox
+ </summary>
+ <returns>Point structure containing current horizontal (.x)
+ and vertical (.y) scroll positions in pixels</returns>
+ <remarks></remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetScrollPosition(System.Windows.Forms.RichTextBox,System.Drawing.Point)">
+ <summary>
+ Set scroll position of RichTextBox
+ </summary>
+ <param name="RichTextBox"></param>
+ <param name="RTBScrollPoint">Point structure containing new horizontal (.x)
+ and vertical (.y) scroll positions in pixels</param>
+ <remarks></remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetScrollBarInfo(System.Windows.Forms.RichTextBox,RichTextBoxEx.PrintRichTextBox.ScrollBarType,RichTextBoxEx.PrintRichTextBox.ScrollBarMask)">
+ <summary>
+ Get information about a RichTextBox scroll bar
+ </summary>
+ <param name="ScrollBarType">ScrollBarType value (.Horizontal or .Vertical)</param>
+ <param name="ScrollBarMask">ScrollBarMask flags indicating what to get
+ (range, page size, position, track position; defaults to everything)</param>
+ <returns>ScrollInfo structure with requested info</returns>
+ <remarks></remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetMaximumWidth(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Get effective maximum text width of RichTextBox in pixels
+ </summary>
+ <returns>Maximum available physical width for any text.
+ (-1 if we're in a recursive loop--see remarks)</returns>
+ <remarks>This value is calculated as follows:<br></br>
+ 1. If control's RightMargin propert is non-zero, then that us used<br></br>
+ 2. Otherwise, if WordWrap is True, then the control's client-area width
+    minus any left-edge "selection" margin is used<br></br>
+ 3. Otherwise, if horizontal scrollbars are enabled, then the "maximum horizontal
+    scroll position" plus the client width, or the width of the longest physical line,
+    whichever is longer, is used<br></br>
+ 4. Otherwise, the width of the longest physical line is uesd</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.FullSelectionLength(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Gets full length of selected text, including any hidden text
+ </summary>
+ <param name="RichTextBox"></param>
+ <returns>Full length of selection</returns>
+ <remarks>This is different from the SelectionLength property only when
+ the host program is targeted for .NET 4.7 or later and hidden text is present
+ in document</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.ExtendedText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Gets full plain text of rich-text box (or selection thereof),
+ including any hidden text
+ </summary>
+ <param name="SelectionOnly">True to get only selected text,
+ False (default) to get entire text</param>
+ <returns>Full plain text, be it entire document or selection</returns>
+ <remarks>This is different from the Text or SelectedText property only when
+ the host program is targeted for .NET 4.7 or later and hidden text is present
+ in document</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.ExtendedFind(System.Windows.Forms.RichTextBox,System.String,System.Int32,System.Int32,System.Windows.Forms.RichTextBoxFinds)">
+ <summary>
+ extended version of Find method--is reliable even when hidden text is in document
+ (overload 1 of 2--search for string)
+ </summary>
+ <param name="SearchText">String to search for</param>
+ <param name="StartPos">Starting position (if EndPos is ommitted)
+ or beginning of range (if EndPos is included) of search</param>
+ <param name="EndPos">End of range of search (if included),
+ may be -1 to indicate end of document</param>
+ <param name="options">RichTextBoxFinds search options</param>
+ <returns>Index of first matching string found, -1 if none found</returns>
+ <remarks>This is functionally different from the regular Find method only
+ when the host program is targeted for .NET 4.7 or later and hidden text
+ is present in document</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.ExtendedFind(System.Windows.Forms.RichTextBox,System.Char[],System.Int32,System.Int32,System.Boolean)">
+ <summary>
+ extended version of Find method--is reliable even when hidden text is in document
+ (overload 2 of 2--search for any of a series of characters)
+ </summary>
+ <param name="SearchChars">Characters to search for</param>
+ <param name="StartPos">Starting position (if EndPos is ommitted)
+ or beginning of range (if EndPos is included) of search</param>
+ <param name="EndPos">End of range of search (if included),
+ may be -1 to indicate end of document</param>
+ <param name="Reverse">True to search backwards, False (default)
+ to search forwards</param>
+ <returns>Index of first matching character found, -1 if none found</returns>
+ <remarks>This is functionally different from the regular Find method only
+ when the host program is targeted for .NET 4.7 or later and hidden text
+ is present in document, or when one chooses to search BACKWARDS for
+ characters in document</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.ContainsProtectedText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Determine if ANY text in a rich-text box (or the selected region thereof)
+ is protected
+ </summary>
+ <param name="SelectionOnly">True to check only selected text,
+ False (default) to check entire text</param>
+ <returns>True if any text in question is protected, False if not</returns>
+ <remarks>This differs from the SelectionProtected property
+ in the following ways:<br></br>
+ 1. It can be used for either selected text or all text<br></br>
+ 2. It is not necessary for all text in question to be protected--
+    only some of it--for this method to return True</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.ContainsHiddenText(System.Windows.Forms.RichTextBox,System.Boolean)">
+ <summary>
+ Determine if ANY text in a rich-text box (or the selected region thereof)
+ is hidden (marked as invisible)
+ </summary>
+ <param name="SelectionOnly">True to check only selected text,
+ False (default) to check entire text</param>
+ <returns>True if any text in question is hidden, False if not</returns>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetListStyle(System.Windows.Forms.RichTextBox,RichTextBoxEx.PrintRichTextBox.RTBListStyle,System.Int32,RichTextBoxEx.PrintRichTextBox.RTBNumberingSyntax,System.Int32)">
+ <summary>
+ Mark selected text in RichTextBox as a list, using a given leader style, a given
+ starting number, a given numbering syntax, and a given indentation (all optional)
+ </summary>
+ <param name="ListStyle">Style of paragraph leaders (no leader, bullets, Arabic
+ numbers, lowercase letters, uppercase letters, lowercase Roman numerals, or uppercase
+ Roman numerals; defaults to numbers)</param>
+ <param name="StartingNumber">Number of item for BEGINNING of list with given leader
+ style (0 - 65535 [&amp;HFFFF]; defaults to 1)</param>
+ <param name="NumberingSyntax">Syntax for paragraph leader (surround in parentheses
+ [i.e., "(1)"], follow with right parenthesis ["1)"], follow with period ["1."], or
+ give plain ["1"]; defaults to period)</param>
+ <param name="Indentation">Indentation in pixels of left edge of paragraph proper from
+ left edge of paragraph leader; defaults to minimum allowed value</param>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetListStyle(System.Windows.Forms.RichTextBox,System.Int32@,System.Int32@,System.Int32@)">
+ <summary>
+ Get listing attributes of selected text; returns leader style--and can
+ optionally return (as variables passed by reference) starting number, numbering
+ syntax, and/or indentation)--for paragraph at caret or first selected paragraph
+ </summary>
+ <param name="StartingNumber">Item number for BEGINNING OF LIST using leader-style at
+ caret or beginning of selection</param>
+ <param name="NumberingSyntax">Snytax of paragraph leaders (surrounded by parentheses
+ [i.e., "(1)"], followed by right parenthesis ["1)"], followed by period ["1."], or
+ given plain ["1"])</param>
+ <param name="Indentation">Indentation in pixels of left edge of paragraph proper from
+ left edge of paragraph leader (0 means minimum allowed value is being used)</param>
+ <returns>Style of paragraph leader (no leader, bullets, Arabic numbers, lowercase
+ letters, uppercase letters, lowercase Roman numerals, uppercase Roman numerals)</returns>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetAlignment(System.Windows.Forms.RichTextBox,RichTextBoxEx.PrintRichTextBox.RTBAlignment)">
+ <summary>
+ Sets horizontal alignment of selected text; differs from setting SelectionAlignment
+ property in that full justification (rich edit version 3.0 or higher only) is an option
+ </summary>
+ <param name="Alignment">Horizontal alignment (left, right, center, or full-justify)</param>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetAlignment(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Gets horizontal alignment of selected text; differs from reading SelectionAlignment property
+ in that full justification (rich edit version 3.0 or higher only) is a possible value and
+ that, if multiple paragraphs are selected with differing alignments, then the value for the
+ first paragraph in the selection, rather than HorizontalAlignment.Left, is returned
+ </summary>
+ <returns>Horizontal alignment (left, right, center, or fully-justified) at carat (if no selection)
+ or of first selected paragraph (if selection)</returns>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.UseAdvancedTypographyOnText(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Set text in rich-text box to use advanced typography (rich edit version 3.0 or higher only)
+ </summary>
+ <remarks>This is recommend for usage after loading or setting RTF text that contains
+ advanced formatting, such as full-justification</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetScriptStyle(System.Windows.Forms.RichTextBox,RichTextBoxEx.PrintRichTextBox.RTBScriptStyle)">
+ <summary>
+ Set selected text to superscript
+ </summary>
+ <param name="ScriptStyle">Superscript (positive), subscript (negative), or normal (0)</param>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.GetScriptStyle(System.Windows.Forms.RichTextBox)">
+ <summary>
+ Determine whether selected text is superscript, subscript, or normal
+ </summary>
+ <returns>Superscript (+1), subscript (-1), or nrmal (0)</returns>
+ <remarks>If script-formatting in selection is mixed, then the value at the caret
+ (begining or end of selection, depending on the direction of user selection) is returned</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.EscapedRTFText(System.Windows.Forms.RichTextBox,System.String)">
+ <summary>
+ Convert plain-text string into RTF string
+ </summary>
+ <param name="PlainText">Plain-text string</param>
+ <returns>String with special characters (i.e., "{", "\", "}", non-ASCII) escaped
+ </returns>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.InsertRtf(System.Windows.Forms.RichTextBox,System.String,System.Int32)">
+ <summary>
+ Insert RTF text into rich-text box at a given position
+ </summary>
+ <param name="RtfTextToInsert">RTF-format text to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>This is the "safe" way to insert, as it accounts for "template RTF"
+ that's expected in any inserted RTF text</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.InsertImage(System.Windows.Forms.RichTextBox,System.Drawing.Image,System.Int32)">
+ <summary>
+ Insert image (bitmap or metafile) into the RichTextBox at a given position
+ </summary>
+ <param name="image">Image to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>
+ The image is first wrapped in a Windows Format Metafile, then written in RTF
+ format to the control using hex strings. The WMF is required because, although
+ RTF 1.6 says one can insert numerous image formats directly into an RTF document,
+ this control ignores it without the wrapper.
+ </remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.InsertIcon(System.Windows.Forms.RichTextBox,System.Drawing.Icon,System.Int32)">
+ <summary>
+ Insert icon into the RichTextBox at a given position
+ </summary>
+ <param name="icon">Icon to insert</param>
+ <param name="position">position in rich-text box to make insertion
+ (defaults to current selection position, overwriting selection, if omitted)</param>
+ <remarks>The icon is converted into a bitmap, using RichTextBox.SelectionBackColor
+ as the transparent color, unless that value is Color.Empty (multiple background colors
+ in selection), in which case RichTextBox.BackColor is used. The resulting bitmap is
+ then wrapped in a Windows Format Metafile, then written in RTF format to the control
+ using hex strings. The WMF is required because, although RTF 1.6 says one can insert
+ numerous image formats directly into an RTF document, this control ignores it without
+ the wrapper.</remarks>
+</member>
+<member name="M:RichTextBoxEx.PrintRichTextBox.SetRedrawMode(System.Windows.Forms.Control,System.Boolean)">
+ <summary>
+ Turns on or off redrawing of rich-text box
+ This can be used to make multiple changes to the text box while preventing
+ the intermediate rendering that would cause flicker
+ </summary>
+ <param name="OnOrOff">True to activate auto-redraw, False to deactivate it</param>
+ <remarks>Specifying True forces the cumulative results
+ of previous operations to be rendered</remarks>
+</member>
+<member name="T:RichTextBoxEx.RichTextBoxEx.WhichOptions">
+ <summary>
+ Which items should be enabled/or disabled in context menu and toolbar?
+ </summary>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.CustomToolStripItemClicked">
+ <summary>
+ CustomToolStripItemClicked event --
+    allows user to respond to the clicking of a
+    custom toolstrip/context-mnenustrip item
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">ToolstripItemClickedEventArgs instance
+    (INPUT: e.ClickedItem = custom toolstrip item that was clicked)</param>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.InsertRtfText">
+ <summary>
+ InsertRtfText event --
+    allows user to specify special text (in RTF format)--for specific key
+    sequences-- to insert at caret in place of any selected text
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">InsertRtfTextEventArgs instance
+    (INPUT: e.KeyEventArgs = keyboard information
+        from underlying (internal) KeyDown event;
+     OUTPUT: e.RtfText = RTF String to insert (null for no change))</param>
+ <remarks>e.RtfText is expected to be a String in RICH-TEXT-FORMAT,
+ not "plain text"!</remarks>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.SmartRtfText">
+ <summary>
+ SmartRtfText event --
+    allows user to specify text (in RTF format) to replace the incoming character
+    being typed in (and optionally preceding characters) at caret inplace
+    of any selected type 
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">SmartRtfTextEventArgs instance
+    (INPUT: e.KeyPressEventArgs = incoming keyboard character from
+        underlying (internal) KeyPress event;
+     OUTPUT: e.RtfText = RTF String to replace text with (null for no change),
+        e.PrecedingCharacterCount = number of preceding characters
+           to remove before inserting e.RtfText)</param>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.ChangesMade">
+ <summary>
+ ChangesMade event --
+    tracks when a change has been made by the user or programatically
+    (unlike underlying text box's TextChanged event, ignores "temporary" edits
+     [that reverse themselves] during a bigger edit operation of this control)
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">EventArgs instance (no parameters)</param>
+ <remarks>If this event fires, then the IsTextChanged property is True</remarks>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.TextProtected">
+ <summary>
+ TextProtected event --
+    tracks when an attempt is made to edit wholly or partially protected text
+    (unlike underlying text box's Protected events, handles attempts to remove
+     local links, and otherwise gives programmer ability to supress usual error
+     warning after handling event)
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">CancelEventArgs instance
+    (OUTPUT: e.Cancel = True to pre-empt default warning after event,
+        False (default) to not)</param>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.HyperlinkClicked">
+ <summary>
+ HyperlinkClicked event --
+    tracks when user clicks on a link or custom link; designed to handle
+    custom links (unlike underlying text box's LinkClicked event, handles
+    text/hyperlink of custom links, and distinguishes between multiple
+    adjacent custom links)
+ </summary>
+ <param name="sender">RichTextBoxEx instance</param>
+ <param name="e">CustomLinkInfoEventArgs istance
+     (OUTPUT: e.CustomLinkInfo instance, with
+         e.CustomLinkInfo.Text = (visible) text,
+         e.CustomLinkInfo.Hyperlink = (invisible) hyperlink)</param>
+ <remarks>If the link is a standard (non-custom) RTB link, then
+ e.CustomLinkInfo.Hyperlink = e.CustomLinkInfo.Text</remarks>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.EditingWithLinksUnprotected">
+ <summary>
+ EditingWithLinksUnprotected event --
+    allows programmer to change regions of text containing custom links
+    (i.e., formatting changes); temporarily unprotects links and disables
+    auto-protection of links, then re-protects links and re-enables auto-protection
+    upon completion
+ </summary>
+ <param name="sender">RichTextBox instances</param>
+ <param name="e">ParameterEventArgs instance
+     (INPUT/OUTPUT: e.Parameters = information to pass to and receive from
+          this event)</param>
+</member>
+<member name="E:RichTextBoxEx.RichTextBoxEx.EnableOrDisableCustomOptions">
+ <summary>
+ EnableOrDisableCustomOptions event --
+    allows program to do processing for setting the Enabled status of programmer-supplied
+    custom items on the context menu and/or toolbar (cf. CustomContextMenuItems/
+    CustomContextMenuArray and CustomToolstripTtems/CustomToolstripArray properties)
+ </summary>
+ <param name="sender">RichTextBox instance</param>
+ <param name="e">EventArgs instance</param>
+ <remarks>This event is fired after the Enabled status of standard items have been set but
+ before a check is made to see which custom items should always be disabled when the rich-text
+ box is read-only. For any programmer-supplied custom options on the context menu or toolbar
+ that are meant to be enable-able even when the text box is read-only, make sure that the
+ ToString representation of the Tag property of any such item ENDS WITH "~aoro" (short for
+ "allow on read-only")--that is, following any "normal" tag-text</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.#ctor">
+ <summary>
+ initialize components and search information
+ </summary>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.ExtendedText">
+ <summary>
+ Get full plain text in text box, including all hidden text
+ </summary>
+ <returns>Full plain text</returns>
+ <remarks>This is the same as the underlying rtb.ExtendedText value with the default
+ parameter (False for whole document), except that, in the case of a .NET-4.7-or-higher
+ host platform, any "hidden-hyphen" end-padding (to account for any invisible text) is
+ omitted. If the host platform is pre-.NET 4.7, then this is the same as the rtb.Text
+ value.</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.IsCaretOverALink">
+ <summary>
+ Determine whether caret is over a custom link
+ </summary>
+ <returns>True if yes, False if no</returns>
+ <remarks>Always returns False custom links are disallowed (if the
+ DoCustomLinks property is False)</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.CustomContextMenuItems">
+ <summary>
+ Get or set collection of custom options for the context-menu
+ </summary>
+ <value>ToolStripItemCollection of desired custom menu items
+ (empty or Nothing for none)</value>
+ <returms>ToolStripItemCollection of current custom menu items
+ (empty for none)</returms>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.CustomToolstripItems">
+ <summary>
+ Get or set collection of custom options for the toolstrip
+ </summary>
+ <value>ToolStripItemCollection of desired custom toolstrip items
+ (empty or Nothing for none)</value>
+ <returms>ToolStripItemCollection of current custom toolstrip items
+ (empty for none)</returms>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.CustomContextMenuArray">
+ <summary>
+ Get or set array of custom options for the context-menu
+ </summary>
+ <value>ToolStripItem array of desired custom menu items
+ (empty or Nothing for none)</value>
+ <returms>ToolStripItem array of current custom menu items
+ (empty for none)</returms>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.CustomToolstripArray">
+ <summary>
+ Get or set array of custom options for the toolstrip
+ </summary>
+ <value>ToolStripItem array of desired custom toolstrip items
+ (empty or Nothing for none)</value>
+ <returms>ToolStripItem array of current custom toolstrip items
+ (empty for none)</returms>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AutoDragDropInProgress">
+ <summary>
+ Get whether an automatic drag-and-drop is in progress
+ </summary>
+ <returns>True if internal text box is receiving a DragDrop event
+ (only possible if drop is auto-drop or if underlying text box's
+ AllowDrop property is set to True), otherwise False</returns>
+ <remarks>This property can be used by the outer class's DragDrop
+ event procedure to determine if the rich-text box should handle the
+ drop internally rather than imposing custom logic. To prevent the underlying
+ text box's default drop logic from occurring, the outer class's DragDrop
+ procedure should set e.Effects to DragDropEffects.None. (If custom logic
+ is not bypassed AND e.Effects is NOT set to DragDropEffects.None, then BOTH
+ the custom and default drop logic occur!)</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.IsSpellCheckContinuous">
+ <summary>
+ Gets or sets whether wrinkly lines show under
+ unrecognized words when spell-checking is enabled
+ </summary>
+ <value>True to enable continuous spell checking,
+ False (default) to disable it</value>
+ <returns>True (default) if continuous spell checking is enabled,
+ else False</returns>
+ <remarks>Continuous spell-check mode is only in effect when BOTH this property
+ AND AllowSpellCheck is True</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.IsTextChanged">
+ <summary>
+ Gets or sets whether to text has been modified
+ </summary>
+ <value>True to flag text as modified (ChangesMade event is fired),
+ False (default) to flag it as unmodified</value>
+ <returns>True if modified (or flagged as modified), False if not</returns>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.rtb">
+ <summary>
+ Get underlying rich-text box control
+ </summary>
+ <returns>rtbRTB control</returns>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.SetColorWithFont">
+ <summary>
+ Gets or sets whether to allow user to specify color with font
+ when invoking the Font Dialog
+ </summary>
+ <value>True (default) for setting color and font together,
+ False for just font</value>
+ <returns>True for setting color and font together, False for just font</returns>
+ <remarks>Setting this property to True still allows one to invoke
+ the Color Dialog to set only color</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.ShowPageBreaks">
+ <summary>
+ Get or set whether to display hard (forced) page breaks
+ </summary>
+ <value>True (default) to display hard page breaks as a broken line above
+ first line of next page, False to not</value>
+ <returns>True if hard page breaks are being displayed, False if not</returns>
+ <remarks>NOTES:<br></br>
+ 1. Soft (unforced) page breaks are not displayed, as they depend
+    on the print-formatting of the document<br></br>
+ 2. The value of this property is independent of the AllowPageAndLineBreaks property;
+    that is, page breaks in a document can still be displayed even if the end-
+    user isn't allowed to insert them</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.ShowToolStrip">
+ <summary>
+ Gets or sets whether to show ToolStrip above RichTextBox
+ </summary>
+ <value>True (default) to show ToolStrip, False to hide it</value>
+ <returns>True if showing ToolStrip, False if not</returns>
+ <remarks>All the shortcut keys and special-character options
+ still work if ToolStrip is hidden</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.ShowRuler">
+ <summary>
+ Gets or sets whether to show TextRuler above RichTextBox
+ </summary>
+ <value>True (default) to show TextRuler, False to hide it</value>
+ <returns>True if showing TextRuler, False if not</returns>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.DoCustomLinks">
+ <summary>
+ Gets or sets whether to allow arbitrary text to be used as links
+ </summary>
+ <value>True to allow custom links, False (default) to disallow</value>
+ <returns>True if allowing custom links, False if not</returns>
+ <remarks>NOTES:<br></br>
+ 1. Setting this property to True sets the DetectURLs property of
+    the underlying text box to False, and DetectURLs should remain false
+    while this property is True, in order to preserve link formatting
+    when adjacent text is modified<br></br>
+ 2. While this property is True, the LinkClicked event of the underlying
+    text box returns both the main text and the hypertext in the form
+    "{text|hyperlink}", and the HyperlinkClicked event in THIS control returns
+    the text and hyperlink of the link in a CustomLinkInfo instance
+    within CustomLinkInfoEventArgs</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.KeepHypertextOnRemove">
+ <summary>
+ Gets or sets whether to retain hyperlink text in document when
+ removing custom links, or just return main text
+ </summary>
+ <value>True to allow keep hyperlinks, False (default) to remove</value>
+ <returns>True if keeping links, False if not</returns>
+ <remarks>If the DoCustomLinks property is False, then 
+ this property is always False and attempts to set it to True are ignored</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.SkipLinksOnReplace">
+ <summary>
+ Gets or sets whether to Find/Replace is to skip text overrlapping custom links
+ when replacing
+ </summary>
+ <value>True (default) for avoiding text containing links, False to allow text
+ containing links to be replaced</value>
+ <returns>True for avoid links, False to allow replacement</returns>
+ <remarks>NOTES:<br></br>
+ 1. When an occurrence of search text containing custom links is replaced, any
+    contained links are replaced in their entirity with the replacement text
+    (along with any adjacent non-link text), even link text just outside
+    the search text<br></br>
+ 2. This value can only be changed when custom links are allowed--that is,
+    when the DoCustomLinks property is set to True</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.InferURLScheme">
+ <summary>
+ Gets or sets whether custom-link hypertext's scheme is inferred when not included;
+ applies to user adding/modifying a link or programmer using AddCustomLink method
+ </summary>
+ <value>True (default) to infer any omitted scheme, False to not</value>
+ <returns>True if omitted schemes are inferred, False if not</returns>
+ <remarks>NOTES:<br></br>
+ 1. This value can only be changed when custom links are allowed--
+    that is, when the DoCustomLinks property is set to True<br></br>
+ 2. Scheme, when inferred, is inferred as follows:<br></br>
+    a. if hypertext begins with "mailto:", with "news:", or with
+       another valid scheme followed by "://", then do nothing;
+       else--<br></br>
+    b. if hypertext begins with "//" or "://", then infer "http://" (website) as scheme;
+       else--<br></br>
+    c. if hypertext contains ":" or "\" , then infer "file://" (local file) as scheme;
+       else--<br></br>
+    d. if hypertext contains "@", then infer "mailto:" (email) as scheme;
+       else--<br></br>
+    e. infer "http://wwww." (WWW website) as scheme</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowTabs">
+ <summary>
+ Gets or sets whether tabs are supported
+ </summary>
+ <value>True (default) to allow tabs, False to disallow then</value>
+ <returns>True if tab marking is enabled, else False</returns>
+ <remarks>ShowRuler property must be True,
+ as tabs must be set using ruler</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowSpellCheck">
+ <summary>
+ Gets or sets whether spell checking is available
+ </summary>
+ <value>True (default) to enable spell checking, False to disable it</value>
+ <returns>True if spell checking is enabled, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowDefaultInsertText">
+ <summary>
+ Gets or sets whether default custom-text insertions are allowed
+ </summary>
+ <value>True (default) to enable default custom text, False to disable it</value>
+ <returns>True if enabling custom-insert text, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowDefaultSmartText">
+ <summary>
+ Gets or sets whether default smart-text replacements are allowed
+ </summary>
+ <value>True (default) to enable default smart text, False to disable it</value>
+ <returns>True if enabling smart-text replacement, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowLists">
+ <summary>
+ Gets or sets whether listing is available
+ </summary>
+ <value>True (default) to enable lists, False to disable it</value>
+ <returns>True if listting is enabled, else False</returns>
+ <remarks>A particular list style, liststyle, is enabled if this property is True
+ AND AvailableListStyle.Item(liststyle) (or simply AvailableListStyle(liststyle) is also True</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AvailableListStyle">
+ <summary>
+ Gets collection of allowed/unallowed leader styles for paragraph lists
+ </summary>
+ <returns>Collection of leader styles</returns>
+ <remarks>AvailableListStyle.Item(liststyle) (or simply AvailableListStyle(liststyle)) is a sub-
+ property that can be read or set to determine whether a given style is allowed whenever
+ AllowLists is also True; liststyle is an RTBListStyle value for no list (cannot be used
+ when setting), numbers, lowercase letters, uppercase leaders, lowercase Roman numerals,
+ or uppercase Roman numerals</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowPictures">
+ <summary>
+ Gets or sets whether picture-inserting is available
+ </summary>
+ <value>True (default) to enable picture insertion, False to disable it</value>
+ <returns>True if picture insertion is enabled, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowSymbols">
+ <summary>
+ Gets or sets whether smybol-inserting is available
+ </summary>
+ <value>True (default) to enable smybol insertion, False to disable it</value>
+ <returns>True if symbol insertion is enabled, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowHyphenation">
+ <summary>
+ Gets or sets whether hyphenation-searching is available
+ </summary>
+ <value>True (default) to enable hyphenation-searching, False to disable it</value>
+ <returns>True if hyphenation-searching is enabled, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.AllowPageAndLineBreaks">
+ <summary>
+ Gets or sets whether user can insert hard page breaks
+ and non-paragraph-breaking hard line breaks
+ </summary>
+ <value>True (default) to allowing inserting of page/line breaks, False to not</value>
+ <returns>True if breaks can be inserted, False if not</returns>
+ <remarks>The value of this property does not affect the ShowPageBreaks property;
+ that is, if hard page breaks are programmatically inserted, the control can
+ still show them</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.SpellCheckSettings">
+ <summary>
+ Get or set spell-check settings
+ </summary>
+ <value>i00SpellCheck SpellCheckSettings value</value>
+ <returns>i00SpellCheck SpellCheckSettings value</returns>
+ <remarks>NOTES:<br></br>
+ 1. If value specified is Nothing, then a series of default
+    settings are used<br></br>
+ 2. The SpellCheckSettings.AllowF7 value is always False,
+    as the text-box's context menu handles the F7 function key<br></br>
+ 3. New settings only take effect when spell-checking is enabled</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.MaintainSelection">
+ <summary>
+ Gets or sets whether selection of selected text is
+ restored after Find, Replace, Hyphenation, Spell-Check, or
+ removal of all custom links dialogs in a region
+ </summary>
+ <value>True (default) to enable re-selection, False to disable it</value>
+ <returns>True if re-selection is enabled, else False</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.UnitsForRuler">
+ <summary>
+ Gets or sets units used for ruler
+ </summary>
+ <value>TextRuler.UnitType.Inches or TextRuler.UnitType.Centimeters</value>
+ <returns>TextRuler.UnitType.Inches or TextRuler.UnitType.Centimeters</returns>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.RightMargin">
+ <summary>
+ Gets or set maximum width of all lines of text in pixels
+ </summary>
+ <value>Text width in pixels</value>
+ <returns>Text width in pixels</returns>
+ <remarks>This is the same as the underlying rtb.RightMargin value,
+ except that setting it IMMEDIATELY affects the rich-text box and ruler</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.Text">
+ <summary>
+ Gets or sets plain text in text box
+ </summary>
+ <value>New plain Text (ChangesMade event is fired if a change
+ in existing text or formatting occurs)</value>
+ <returns>Existing plain Text</returns>
+ <remarks>This is the same as the underlying rtb.Text value, except that, in the case
+ of a .NET-4.7-or-higher host platform, any "hidden-hyphen" end-padding (to account for
+ any invisible text) is omitted.</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.Rtf">
+ <summary>
+ Gets or sets RTF text in text box
+ </summary>
+ <value>New RTF Text (ChangesMade event is fired if different from existing)</value>
+ <returns>Existing RTF Text</returns>
+ <remarks>This is the same as the underlying rtb.Rtf value, except that, in the case
+ of a .NET-4.7-or-higher host platform, any "hidden-hyphen" end-padding (to account for
+ any invisible text) is omitted.</remarks>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.FilePath">
+<summary>
+ Gets or sets directory for any text and pictures saved for loaded
+ </summary>
+ <value>New file path</value>
+ <returns>Existing file path</returns>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.GetToolStripItemArray(System.Windows.Forms.ToolStripItemCollection)">
+ <summary>
+ Get array of ToolStripItem from ToolStripItemCollection
+ </summary>
+ <param name="tsic">ToolStripItemCollection instance</param>
+ <returns>Array of ToolStripItem</returns>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.SaveFile(System.String,System.Nullable{System.Windows.Forms.RichTextBoxStreamType})">
+ <summary>
+ Save contents of the rich-text box (to a file; overload 1 of 2)
+ </summary>
+ <param name="FileName">Name of RTF/plain-text file
+ (if null or omitted, then a file dialog is invoked)</param>
+ <param name="Format">Format of file (user-specified if -1 or omitted)</param>
+ <returns>True if text was loaded, False if any dialog was cancelled</returns>
+ <remarks>NOTES:<br></br>
+ 1. When saving as plain text, any custom links take the form "{text|hyperlink}"
+    or simply "text", depending on whether KeepHypertextOnRemove is True or False,
+    respectively<br></br>
+ 2. If the host platform is .NET 4.7 or higher, then any "hidden-hyphen" end-padding
+    (to account for any invisible text) is omitted from the saved version of the
+    document</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.SaveFile(System.IO.Stream,System.Windows.Forms.RichTextBoxStreamType)">
+ <summary>
+ Save contents of the rich-text box (to a data stream; overload 2 of 2)
+ </summary>
+ <param name="Data">IO stream</param>
+ <param name="Format">Format of file</param>
+ <returns>Always True</returns>
+ <remarks>NOTES:<br></br>
+ 1. When saving as plain text, any custom links take the form "{text|hyperlink}"
+    or simply "text", depending on whether KeepHypertextOnRemove is True or False,
+    respectively<br></br>
+ 2. If the host platform is .NET 4.7 or higher, then any "hidden-hyphen" end-padding
+    (to account for any invisible text) is omitted from the saved version of the
+    document</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.LoadFile(System.String,System.Nullable{System.Windows.Forms.RichTextBoxStreamType})">
+ <summary>
+ Load a contents into the rich-text box (from a file; overload 1 of 2)
+ </summary>
+ <param name="FileName">Name of RTF/plain-text file
+ (if null or omitted, then a file dialog is invoked)</param>
+ <param name="Format">Format of file (user-specified if -1 or omitted)</param>
+ <returns>True if text was loaded, False if any dialog was cancelled</returns>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.LoadFile(System.IO.Stream,System.Windows.Forms.RichTextBoxStreamType)">
+ <summary>
+ Load a contents into the rich-text box (from a data stream; overload 2 of 2)
+ </summary>
+ <param name="Data">IO stream</param>
+ <param name="Format">Format of file</param>
+ <returns>Always True</returns>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.InsertPicture(System.String)">
+ <summary>
+ Insert a picture into the rich-text box at where text is selected
+ (from a file; overload 1 of 3)
+ </summary>
+ <param name="FileName">Name of picture file
+ (if null or omitted, then a file dialog is invoked)</param>
+ <returns>False if dialog was cancelled,
+ True (and ChangesMade event is fired) if picture was inserted</returns>
+ <remarks>Picture is NOT placed into clipboard before insertion</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.InsertPicture(System.Drawing.Image)">
+ <summary>
+ Insert a picture into the rich-text box at where text is selected
+ (from a bitmap or metafile; overload 2 of 3)
+ </summary>
+ <param name="Image">Picture image</param>
+ <returns>True (ChangesMade event is fired)</returns>
+ <remarks>Picture is NOT placed into clipboard before insertion</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.InsertPicture(System.Drawing.Icon)">
+ <summary>
+ Insert a picture into the rich-text box at where text is selected
+ (from an icon; overload 3 of 3)
+ </summary>
+ <param name="Icon">Picture icon</param>
+ <returns>True (ChangesMade event is fired)</returns>
+ <remarks>NOTES:<br></br>
+ 1. Picture is NOT placed into clipboard before insertion.<br></br>
+ 2. The icon is converted into a bitmap, using rtb.SelectionBackColor as the
+    transparent color, unless that value is Color.Empty (multiple background
+    colors in selection), in which case rtb.BackColor is used</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.SelectAnyLinkUnderCaret">
+ <summary>
+ Make sure that if a custom link is under the caret, then it is highlighted
+ </summary>
+ <remarks>An exception is thrown if custom links are disallowed (if the
+ DoCustomLinks property is False)</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.CheckForCustomLink(System.Int32,System.Boolean)">
+ <summary>
+ Find out if a link is at the given position
+ </summary>
+ <param name="position">position to check for link
+ (current caret position if omitted or negative)</param>
+ <param name="AreLookingBackwards">True to look backwards from position,
+ False (default if omitted) to look forwards from position</param>
+ <returns>CustomLinkInfo instance with starting position,
+ text, and hyperlink</returns>
+ <remarms>NOTES:<br></br>
+ 1. An exception is thrown if the custom links are disallowed (if the
+    DoCustomLinks property is False)<br></br>
+ 2. If no link is present at the given position, then Nothing is returned</remarms>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.AddCustomLink(RichTextBoxEx.CustomLinkInfo@)">
+ <summary>
+ Add link with given information
+ </summary>
+ <param name="Link">Information about insertion position,
+ text, and hyperlink</param>
+ <returns>True if added, False if not</returns>
+ <remarks>>NOTES:<br></br>
+ 1. An exception is thrown if the custom links are disallowed
+    (if the DoCustomLinks property is False), or if Link contains invalid data<br></br>
+ 2. If a link is successfully added, then the caret moves to the end of the link<br></br>
+ 3. If Link.Positon is negative, then the link overwrites the currently highlighted
+    text (or is inserted at the caret if no text is highlighted); otherwise, it
+    is inserted at Link.Position with no pre-existing text overwrittten</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.RemoveCustomLink(System.Int32)">
+ <summary>
+ Remove link at a given position
+ </summary>
+ <param name="position">Starting position of link</param>
+ <returns>True if link removed, False if not</returns>
+ <remarms>>NOTES:<br></br>
+ 1. An exception is thrown if the custom links are disallowed
+   (if the DoCustomLinks property is False), or if position is invalid<br></br>
+ 2. If link is successfully removed, then caret moves to end of de-linked text<br></br>
+ 3. If the KeepHyperlinksOnRemove property is True, then the de-linked text
+    is of the form "{text|hyperlink}", including both main text and hyperlink text;
+    otherwise, it is "text", including only the main text</remarms>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.GetCustomLinks(System.Boolean)">
+ <summary>
+ Get a list of all custom links currently existing in selection or document
+ </summary>
+ <param name="InSelectionOnly">True to get custom links in selected text only,
+ False (default) to get links in entire document</param>
+ <returns>Array of CustomLinkInfo instances with each
+ link's position, visible text, and hyperlink text</returns>
+ <remarks>An exeption is thrown if custom links are disallowed
+ (if DoCustomLinks is False)</remarks>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.EditWithLinksUnprotected(System.Object@)">
+ <summary>
+ Temporarily unprotect custom link and disable auto-protection of links,
+ then fire EditingWithLinksUnprotected event to allow programmatic edits to
+ regions containing custom links (i.e., formatting changes)
+ </summary>
+ <param name="Parameters">Information to be give to and receive from the
+ EditingWithLinksUnprotected event's procedure (can be omitted for no info)</param>
+ <remarks>NOTES:<br></br>
+ 1. An exeption is thrown if custom links are disallowed
+    (if DoCustomLinks is False)<br></br>
+ 2. Links are re-protected and auto-protection is re-enabled after the
+    event finishes, even if the event's procedure throws an unhandled exception<br></br>
+ 3. This method is ignored if the EditingWithLinksUnprotected event is ALREADY
+    being processed</remarks>
+</member>
+<member name="T:RichTextBoxEx.RichTextBoxEx.RTBENativeWindow">
+ <summary>
+ Class to draw hard page breaks
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.RTBENativeWindow.#ctor(RichTextBoxEx.RichTextBoxEx)">
+ <summary>
+ Assign instance of RichTextBoxEx to this class
+ </summary>
+ <param name="rtbe">RichTextBoxEx instance</param>
+</member>
+<member name="P:RichTextBoxEx.RichTextBoxEx.RTBENativeWindow.IsPageBreakSubclasserActive">
+ <summary>
+ Get whether page-break subclasser is active (RichTextBox handle is assigned to this class)
+ </summary>
+ <returns>True if yes, else False</returns>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.RTBENativeWindow.AssignHandleIfPossible">
+ <summary>
+ Assign handle of parent class's rich-text box to this class
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.RichTextBoxEx.RTBENativeWindow.ReleaseHandleIfNecessary">
+ <summary>
+ Release handle of parent class from this class
+ </summary>
+</member>
+<member name="T:RichTextBoxEx.CustomLinkInfo">
+ <summary>
+ Information about a link--position, visible text, and invisible hyperlink
+ </summary>
+</member>
+<member name="T:RichTextBoxEx.ListStyleCollection">
+ <summary>
+ Enabled/disabled flags for different kinds of lists (no leader [always enabled], bullet,
+ numbered, lowercase-lettered, uppercase-lettered, lowercase-Roman-numeraled, uppercase-
+ Roman-numeraled) whenever lists are allowed
+ </summary>
+</member>
+<member name="P:RichTextBoxEx.ListStyleCollection.Control">
+ <summary>
+ Gets control this collection belongs to
+ </summary>
+ <returns>RichTextBoxEx instance</returns>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.#ctor(RichTextBoxEx.RichTextBoxEx,System.Boolean[])">
+ <summary>
+ instantiate ListStyleCollection (using array; overload 1 of 2)
+ </summary>
+ <param name="RichTextBoxEx">RichTextBoxEx instanceowning this collection</param>
+ <param name="ListStyles">Boolean array with status of each leader style
+ (if omitted, then ALL styles are enabled)</param>
+ <remarks>This ovvereload always sets all 7 leader styles (extra elements in array
+ are ignored; missing elements are set to unavailable), with "no leader" style always
+ being set to available</remarks>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.#ctor(RichTextBoxEx.RichTextBoxEx,RichTextBoxEx.ListStyleCollection)">
+ <summary>
+ instantiate ListStyleCollection (using collection; overload 2 of 2)
+ </summary>
+ <param name="RichTextBoxEx">RichTextBoxEx instanceowning this collection</param>
+ <param name="ListStyleCollection">Pre-existing ListStyleCollection</param>
+ <remarks>This overload is used to transfer the status of leader styles from
+ another extended rich-text box</remarks>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.SetListStyles(System.Boolean[])">
+ <summary>
+ Set available/unavailable status of leader styles (using array; overload 1 of 2)
+ </summary>
+ <param name="ListStyles">Boolean array with status of each leader style</param>
+ <remarks>This ovvereload always sets all 7 leader styles (extra elements in array
+ are ignored; missing elements are set to unavailable), with "no leader" style always
+ being set to available</remarks>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.SetListStyles(RichTextBoxEx.ListStyleCollection)">
+ <summary>
+ Set available/unavailable status of leader styles (using collection; overload 2 of 2)
+ </summary>
+ <param name="ListStyleCollection">Pre-existing ListStyleCollection</param>
+ <remarks>This overload is used to transfer the status of leader styles from
+ another extended rich-text box</remarks>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.GetListStyles">
+ <summary>
+ Get available/unavailable status of ALL leader stypes
+ </summary>
+ <returns>Boolean array with status for each leader style</returns>
+ <remarks>ToArray performs the same task</remarks>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.AreAnyAvailable">
+ <summary>
+ Get whether ANY leader styles (aside from none) are allowed for paragraph lists
+ </summary>
+ <returns>True if at least 1 style besides "no leader" is allowed, False if not</returns>
+</member>
+<member name="M:RichTextBoxEx.ListStyleCollection.Copy">
+ <summary>
+ Create copy of this instance
+ </summary>
+ <returns>Copy with same text control and style array</returns>
+</member>
+<member name="T:RichTextBoxEx.InsertRtfTextEventArgs">
+ <summary>
+ Event Arguments for InsertRtfText event--which allows one
+ to specify custom text for specific key sequences
+ </summary>
+ <remarks>If KeyEventArgs.SuppressKeyPress is True,
+ then no change is made to text</remarks>
+</member>
+<member name="M:RichTextBoxEx.InsertRtfTextEventArgs.#ctor(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Supplies initial keyboard information
+ </summary>
+ <param name="KeyEventArgs">KeyEventArgs instance for
+ underlying KeyDown event</param>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.InsertRtfTextEventArgs.RtfText">
+ <summary>
+ RTF text to be inserted
+ </summary>
+ <value>Text to be inserted in RTF format</value>
+ <returns>Text to be inserted in RTF format</returns>
+ <remarks>Defaults to null for making no change,
+ except any default text allowed</remarks>
+</member>
+<member name="P:RichTextBoxEx.InsertRtfTextEventArgs.KeyEventArgs">
+ <summary>
+ Keyboard information
+ </summary>
+ <value>KeyEventArgs instance from underlying KeyDown event</value>
+ <returns>KeyEventArgs instance from underlying KeyDown event</returns>
+ <remarks>Set KeyEventArgs.SuppressKeyPress to True ensure that NO text is
+ inserted, even any default text</remarks>
+</member>
+<member name="T:RichTextBoxEx.SmartRtfTextEventArgs">
+ <summary>
+ Event Arguments for SmartRtfText event--
+ which allows one to replace a recent set of characters
+ (including an incoming one) with custom text
+ </summary>
+ <remarks>If no RTF text or length of text to replace is specified on output,
+ no change is made to text</remarks>
+</member>
+<member name="M:RichTextBoxEx.SmartRtfTextEventArgs.#ctor(System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ Supplies initial keyboard information
+ </summary>
+ <param name="KeyPressEventArgs">KeyPressEventArgs instance
+ for underlying KeyPress event</param>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.SmartRtfTextEventArgs.RtfText">
+ <summary>
+ Smart text to be inserted
+ </summary>
+ <value>Smart text to be inserted in RTF format</value>
+ <returns>Smart text to be inserted in RTF format</returns>
+ <remarks>Defaults to null for making no change</remarks>
+</member>
+<member name="P:RichTextBoxEx.SmartRtfTextEventArgs.PrecedingCharacterCount">
+ <summary>
+ Number of characters to replace prior to incoming character
+ </summary>
+ <value># of characters to replace</value>
+ <returns># of characters to replace</returns>
+ <remarks>Characters preceding the incoming character are removed
+ before smart text is inserted</remarks>
+</member>
+<member name="P:RichTextBoxEx.SmartRtfTextEventArgs.KeyPressEventArgs">
+ <summary>
+ Keyboard information
+ </summary>
+ <value>KeyEventArgs instance from underlying KeyPress event</value>
+ <returns>KeyEventArgs instance from underlying KeyPress event</returns>
+ <remarks>e.KeyChar is the incoming character</remarks>
+</member>
+<member name="T:RichTextBoxEx.CustomLinkInfoEventArgs">
+ <summary>
+ Event Arguments for HyperlinkClicked event--
+ returns CustomLinkInfo instance with position, text, and hyperlink
+ </summary>
+ <remarks>If custom links are not enabled, then
+ position is -1 and text and hyperlink are the same</remarks>
+</member>
+<member name="P:RichTextBoxEx.CustomLinkInfoEventArgs.CustomLinkInfo">
+ <summary>
+ Information about text and hyperlink link
+ </summary>
+ <returns>.Text = (visible) text, and .Hyperlink = (invisible) hyperlink</returns>
+</member>
+<member name="T:RichTextBoxEx.ParameterEventArgs">
+ <summary>
+ Event Arguments for EditingWithLinksUnprotected event--which allows one
+ to specify information for event
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.ParameterEventArgs.#ctor(System.Object)">
+ <summary>
+ Supplies initial event information
+ </summary>
+ <param name="Parameters">Information for event</param>
+ <remarks></remarks>
+</member>
+<member name="P:RichTextBoxEx.ParameterEventArgs.Parameters">
+ <summary>
+ Information for event procedure
+ </summary>
+ <value>Information supplied to event</value>
+ <returns>Information returned from event</returns>
+</member>
+<member name="T:RichTextBoxEx.TextRuler.UnitType">
+ <summary>
+ Enumerations for ruler's units (inches or centimeters)
+ </summary>
+</member>
+<member name="T:RichTextBoxEx.TextRuler.MarkerType">
+ <summary>
+ Enumerations for margin, indent, and tab markers
+ </summary>
+</member>
+<member name="E:RichTextBoxEx.TextRuler.IndentsChanged">
+ <summary>
+ Event for tracking a change in indent(s) by user
+ </summary>
+ <param name="sender">TextRuler instance</param>
+ <param name="e">INPUT: e.MarkerType = type of indent(s) changed</param>
+</member>
+<member name="E:RichTextBoxEx.TextRuler.MarginsChanged">
+ <summary>
+ Event for tracking a change in margin by user
+ </summary>
+ <param name="sender">TextRuler instance</param>
+ <param name="e">INPUT: e.MarkerType = type of margin changed</param>
+</member>
+<member name="E:RichTextBoxEx.TextRuler.TabAdded">
+ <summary>
+ Event for tracking a new tab being added by user
+ </summary>
+ <param name="sender">TextRuler instance</param>
+ <param name="e">INPUT: e.NewPosition = position of new tab</param>
+</member>
+<member name="E:RichTextBoxEx.TextRuler.TabRemoved">
+ <summary>
+ Event for tracking an existing tab being removed by user
+ </summary>
+ <param name="sender">TextRuler instance</param>
+ <param name="e">INPUT: e.OldPosition = position of deleted tab</param>
+</member>
+<member name="E:RichTextBoxEx.TextRuler.TabChanged">
+ <summary>
+ Event for tracking an existing tab being moved by user
+ </summary>
+ <param name="sender">TextRuler instance</param>
+ <param name="e">INPUT:
+ e.NewPosition = mew position of tab, and e.OldPosition = previous position of tab</param>
+</member>
+<member name="M:RichTextBoxEx.TextRuler.#ctor">
+ <summary>
+ Initialize control
+ </summary>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.MarkerUnderMouse">
+ <summary>
+ Which margin or indent(s) is/are the mouse hovering over or dragging?
+ </summary>
+ <returns>Type of marker (MarkerType.No_Marker if none)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.TabUnderMouse">
+ <summary>
+ Which tab is the mouse hovering over or dragging?
+ </summary>
+ <returns>Tab position number (MarkerType.No_Marker if none)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.TabsEnabled">
+ <summary>
+ Gets or sets whether ruler can be used to handle tabs
+ </summary>
+ <value>True to enable, False to disable</value>
+ <returns>True (default) if enabled, False if disabled</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.MaximumTabs">
+ <summary>
+ Gets or sets maximum number of tabs allowed when tabs are enabled
+ </summary>
+ <vale>Number of tabs allowed (must be non-negative)</vale>
+ <returns>Number of tabs allowed (defaults to 32)</returns>
+ <remarks>If number of existing tabs is greater than value given,
+ then this property is not changed</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.TabPositionsInUnits">
+ <summary>
+ Gets or sets positions of tabs in inches/centimeters,
+ depending on value of Units property
+ </summary>
+ <value>Array of new tab positions</value>
+ <returns>Array of existing tab positions</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.TabPositions">
+ <summary>
+ Gets or sets positions of tabs in pixels
+ </summary>
+ <value>Array of new tab positions</value>
+ <returns>Array of existing tab positions</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.PixelsPerCentimeter">
+ <summary>
+ Gets number of pixels per centimeter
+ </summary>
+ <returns>Number of pixels/cm</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.PixelsPerInch">
+ <summary>
+ Gets number of pixels per inch
+ </summary>
+ <returns>Number of pixels/inch</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.Units">
+ <summary>
+ Gets or sets whether units are inches or centimeters
+ </summary>
+ <value>New type of unit</value>
+ <returns>Existing type of unit (default is inches)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.ToolTipText">
+ <summary>
+ Gets or sets normal tooltip for ruler
+ </summary>
+ <value>New tooltip text</value>
+ <returns>Existing tooltip text (defaults to null)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.UsingSmartToolTips">
+ <summary>
+ Gets or sets whether tooltip becomes name of marker when mouse is over one
+ </summary>
+ <value>True for yes (use marker names when over markers),
+ False for no (always stick with standard ToolTipText)</value>
+ <returns>True (default) or yes, False for no</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.BorderColor">
+ <summary>
+ Gets or sets color of ruler's border
+ </summary>
+ <value>New border color</value>
+ <returns>Existing border color (defaults to black)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.ZoomFactor">
+ <summary>
+ Gets or sets zoom factor for ruler
+ </summary>
+ <value>Factor to multiply "true" margin/indent/tab positions by (must be positive!)</value>
+ <returns>Factor by which "true" positions are multiplied</returns>
+ <remarks>Changing the zoom factor only changes the visual scaling of the ruler and of
+ the positions of markers; if DOES NOT effect the values gotten/set for the margin,
+ indent, and tab properties (that is, their pixel/unit values are always treated as if
+ ZoomFactor were 1.0).</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.BaseColor">
+ <summary>
+ Gets or sets base color for ruler
+ </summary>
+ <value>New base color</value>
+ <returns>Existing base color (defaults to white)</returns>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.RulerWidth">
+ <summary>
+ Get or sets the maximum width of ruler, including margins, in pixels
+ </summary>
+ <value>Maximum width for ruler area in pixels, including margins</value>
+ <returns>Maximum width of ruler area in pixels, including margins</returns>
+ <remarks>NOTES:
+ 1. Value cannot be too narrow to allow space between the rightmost left-indent
+    and the right indent
+ 2. This is PrintableWidth plus any margin widths</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.PrintableWidth">
+ <summary>
+ Gets or sets width of area within margins of ruler, in pixels
+ </summary>
+ <value>The maximum printable area within margins in pixels</value>
+ <returns>The maximum printable area with margins in pixels</returns>
+ <remarks>NOTES:
+ 1. Value cannot be too narrow to allow space between the rightmost left-indent
+    and the right indent
+ 2. This is MaximumWidth minus any margin widths</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.ScrollingOffset">
+ <summary>
+ Get or sets the scrolling offset of ruler
+ </summary>
+ <value>Scrolling offset for ruler area in pixels</value>
+ <returns>Scrolling offset of ruler area in pixles</returns>
+ <remarks>Value cannot be larger than maximum ruler width</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.NoMargins">
+ <summary>
+ Gets or sets whether margins are disabled
+ </summary>
+ <value>True to disable (no margins), False to enable (margins allowed)</value>
+ <returns>True if disabled (default), False if enabled</returns>
+ <remarks>NOTE: If margins pre-exist, then the left and right indent properties
+ are adjusted to point to the same locations as before</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.LeftMargin">
+ <summary>
+ Gets or sets left margin, in pixels whenever ZoomFactor = 1
+ </summary>
+ <value>New margin (NoMargins property must be False)</value>
+ <returns>Existing margin (defaults to 0)</returns>
+ <remarks>NOTES:
+ 1. If NoMargins property is True, margin will not be set
+ 2. Left margin cannot be set to move rightmost left indent
+    too close to right indent</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.RightMargin">
+ <summary>
+ Gets or sets right margin, in pixels whenever ZoomFactor = 1
+ </summary>
+ <value>New margin</value>
+ <returns>Existing margin (defaults to 0)</returns>
+ <remarks>NOTES:
+ 1. If NoMargins property is True, margin will not be set
+ 2. Right margin cannot be set to move right indent
+    too close to rightmost left indent</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.HangingIndent">
+ <summary>
+ 'Gets or sets left hanging indent--offset, in pixels whenever ZoomFactor = 1,
+ from first-line left indent for all lines in a paragraph after the first
+ (negative for "first-line" indent, 0 for no indent offset, positive for true "hanging" indent)
+ </summary>
+ <value>New offset from left indent</value>
+ <returns>Existing offset from left indent (defaults to 0)</returns>
+ <remarks>NOTE: Hanging indent may not be set to get left of left margin</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.FirstLineIndent">
+ <summary>
+ Gets or sets first-line indent--offset, in pixels whenever ZoomFactor = 1,
+ from any left margin of the first line in a paragraph without changing indent
+ of subsequent lines
+ </summary>
+ <value>New first-line left-indent value</value>
+ <returns>Existing first-line left-indent value
+ (the same as LeftIndent property when reading; defaults to 0)</returns>
+ <remarks>NOTES:
+ 1. First-line indent cannot be set to move left of left margin or right of right indent
+ 2. This moves only the indent of the first-line in each paragraph; the indent of subsequent
+    lines remains unchanged, causing HangingIndent property to be counter-offset</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.LeftIndent">
+ <summary>
+ Gets or sets left indent--offset, in pixels whenever ZoomFactor = 1, from any left margin
+ of first line in paragraph, moving indendation of subsequent lines along with it,
+ </summary>
+ <value>New first-line left-indent value
+ (cannot be make other lines go left of left MARGIN!)</value>
+ <returns>Existing first-line left-indent value
+ (the same as FirstLineIndent property when reading; defaults to 0)</returns>
+ <remarks>NOTES:
+ 1. Left indent cannot be set to move left of left margin or right of right indent
+ 2. All lines in paragraph are moved the same distance left or right,
+    causing HangingIndent property to remain unchanged</remarks>
+</member>
+<member name="P:RichTextBoxEx.TextRuler.RightIndent">
+ <summary>
+ Gets or sets right indent--offset, in pixels whenever ZoomFactor = 1,
+ from any right margin
+ </summary>
+ <value>New right-indent value</value>
+ <returns>Existing right-indent value (defaults to 0)</returns>
+ <remarks>NOTE: Right indent cannot be set to move
+ right of right margin or left of leftmost left indent</remarks>
+</member>
+<member name="M:RichTextBoxEx.TextRuler.UnitsToPixels(System.Single)">
+ <summary>
+ Convert value from current unit type (inches or centimeters) to pixels
+ </summary>
+ <param name="value">Value in units specified by Units property</param>
+ <returns>Equivalent value in pixels</returns>
+</member>
+<member name="M:RichTextBoxEx.TextRuler.PixelsToUnits(System.Int32)">
+ <summary>
+ Convert value from pixels to current unit type (inches or centimeters)
+ </summary>
+ <param name="value">Value in pixels</param>
+ <returns>Equivalent value in units specified by Units property</returns>
+</member>
+<member name="T:RichTextBoxEx.TabEventArgs">
+ <summary>
+ Event class for dealing with when a tab is added, moved, or removed
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.TabEventArgs.#ctor(System.Int32,System.Int32)">
+ <summary>
+ Set up new and old positions
+ </summary>
+ <param name="NewPosition">New location of tab</param>
+ <param name="OldPosition">Original location of tab</param>
+</member>
+<member name="P:RichTextBoxEx.TabEventArgs.NewPosition">
+ <summary>
+ Get new position of tab
+ </summary>
+ <returns>New position of tab</returns>
+</member>
+<member name="P:RichTextBoxEx.TabEventArgs.OldPosition">
+ <summary>
+ Get original position of tab
+ </summary>
+ <returns>Original positon of tab</returns>
+</member>
+<member name="T:RichTextBoxEx.MarginOrIndentEventArgs">
+ <summary>
+ Event class for dealing with when 1 or more 2 margins or indents are changed by the user
+ </summary>
+</member>
+<member name="M:RichTextBoxEx.MarginOrIndentEventArgs.#ctor(RichTextBoxEx.TextRuler.MarkerType)">
+ <summary>
+ Set up margin/ident type
+ </summary>
+ <param name="MarkerType">Type of margin or indent</param>
+</member>
+<member name="P:RichTextBoxEx.MarginOrIndentEventArgs.MarkerType">
+ <summary>
+ Get type of margin or indent(s)
+ </summary>
+ <returns>Margin/indent(s) type</returns>
+</member>
+</members>
+</doc>

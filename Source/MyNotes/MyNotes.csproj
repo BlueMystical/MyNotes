@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{982AAD2C-956C-4DF6-8181-767CA577F9E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MyNotes</RootNamespace>
+    <AssemblyName>MyNotes</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Book.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MyNotes.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.65.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.65.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.65.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.65.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.65.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.65.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.65.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.65.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Docs.v1, Version=1.64.0.3193, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Docs.v1.1.64.0.3193\lib\net45\Google.Apis.Docs.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.65.0.3256, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.65.0.3256\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.65.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.65.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TextRuler">
+      <HintPath>lib\TextRuler.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\GDocs.cs" />
+    <Compile Include="Classes\PropertyHelper.cs" />
+    <Compile Include="Controls\RTFLineNumbers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\VNavBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VNavBar.Designer.cs">
+      <DependentUpon>VNavBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocPropertiesForm.Designer.cs">
+      <DependentUpon>DocPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GDriveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GDriveForm.Designer.cs">
+      <DependentUpon>GDriveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LinkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LinkForm.Designer.cs">
+      <DependentUpon>LinkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RawTextEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RawTextEditorForm.Designer.cs">
+      <DependentUpon>RawTextEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TableForm.Designer.cs">
+      <DependentUpon>TableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\RTFex.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\TemplateManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TemplateManager.Designer.cs">
+      <DependentUpon>TemplateManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\VO.cs" />
+    <EmbeddedResource Include="Controls\VNavBar.resx">
+      <DependentUpon>VNavBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocPropertiesForm.resx">
+      <DependentUpon>DocPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GDriveForm.resx">
+      <DependentUpon>GDriveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LinkForm.resx">
+      <DependentUpon>LinkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RawTextEditorForm.resx">
+      <DependentUpon>RawTextEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TableForm.resx">
+      <DependentUpon>TableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\TemplateManager.resx">
+      <DependentUpon>TemplateManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="client_secrets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Book.ico" />
+    <None Include="lib\logo_drive_2020q4_color_2x_web_64dp.png" />
+    <None Include="lib\logo_drive_2020q4_color_16x16.png" />
+    <Content Include="Resources\Italic_16x16.png" />
+    <None Include="Resources\undo_16x16.png" />
+    <None Include="Resources\underline_16x16.png" />
+    <None Include="Resources\strikeout_16x16.png" />
+    <None Include="Resources\sortasc_16x16.png" />
+    <None Include="Resources\show_16x16.png" />
+    <None Include="Resources\saveall_16x16.png" />
+    <None Include="Resources\save_16x16.png" />
+    <None Include="Resources\reset_16x16.png" />
+    <None Include="Resources\replace_16x16.png" />
+    <None Include="Resources\refresh_16x16.png" />
+    <None Include="Resources\redo_16x16.png" />
+    <None Include="Resources\recurrence_16x16.png" />
+    <None Include="Resources\print_16x16.png" />
+    <None Include="Resources\previewchart_16x16.png" />
+    <None Include="Resources\preview_16x16.png" />
+    <None Include="Resources\paste_16x16.png" />
+    <None Include="Resources\palette_16x16.png" />
+    <None Include="Resources\open_16x16.png" />
+    <None Include="Resources\listbullets_16x16.png" />
+    <None Include="Resources\insertimage_16x16.png" />
+    <None Include="Resources\indentincrease_16x16.png" />
+    <None Include="Resources\highlight_16x16.png" />
+    <None Include="Resources\forward_16x16.png" />
+    <None Include="Resources\fontcolor_16x16.png" />
+    <None Include="Resources\font_16x16.png" />
+    <None Include="Resources\find_16x16.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\delete_hyperlink_16x16.png" />
+    <None Include="Resources\delete_16x16.png" />
+    <None Include="Resources\cut_16x16.png" />
+    <None Include="Resources\customizemergefield_16x16.png" />
+    <None Include="Resources\customization_16x16.png" />
+    <None Include="Resources\copy_16x16.png" />
+    <None Include="Resources\clearformatting_16x16.png" />
+    <None Include="Resources\changetextcase_16x16.png" />
+    <None Include="Resources\changefontstyle_16x16.png" />
+    <None Include="Resources\bold_16x16.png" />
+    <None Include="Resources\all_borders_16x16.png" />
+    <None Include="Resources\alignright_16x16.png" />
+    <None Include="Resources\alignleft_16x16.png" />
+    <None Include="Resources\alignjustify_16x16.png" />
+    <None Include="Resources\aligncenter_16x16.png" />
+    <None Include="Resources\additem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlTreeView\ControlTreeView.csproj">
+      <Project>{cdc9bdbf-6f7c-4f08-b9d5-396f39e85dc1}</Project>
+      <Name>ControlTreeView</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -12,3 +12,14 @@ Full Integration with Google Drive, you can automatically store your documents i
 ![GDRIVE](Source/MyNotes/ScreenShot_2.png)
 
 And much more..
+
+## Requirements
+
+Microsoft .NET Framework version 4.8 or newer. If you are on Windows 10+, you may already have it. 
+If you don't have it installed yet, you can get it [here](https://dotnet.microsoft.com/download/dotnet-framework/net8).
+
+## Installation
+
+* Download the latest `MyNotes3_vX.XX.zip` file from the [releases page](https://github.com/BlueMystical/MyNotes/releases/latest).
+* Unzip it anywhere you want in your PC.
+* Run the EXE.

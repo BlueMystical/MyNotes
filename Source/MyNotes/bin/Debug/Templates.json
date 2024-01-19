@@ -1,0 +1,114 @@
+[
+  {
+    "Name": "Empty Template",
+    "Description": "An Empty Template, only 1 entry.",
+    "Author": "Blue Mystic - 2023",
+    "Data": [
+      {
+        "content": "Write Something here.",
+        "first_level": "[Entry] 1",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      }
+    ]
+  },
+  {
+    "Name": "Book Template",
+    "Description": "Simple Template for Book Chapters.",
+    "Author": "Blue Mystic - 2023",
+    "Data": [
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Chapter] 1",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "[Section] A",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "[Section] B",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "[Section] C",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "",
+        "third_level": "[Entry] 1",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Chapter] 2",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Chapter] 3",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      }
+    ]
+  },
+  {
+    "Name": "Diary Template",
+    "Description": "Simple Template for an Daily Agenda.",
+    "Author": "Blue Mystic - 2023",
+    "Data": [
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Monday]",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "[Morning]",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "",
+        "second_level": "[Afternoon]",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Tuesday]",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      },
+      {
+        "content": "[LorenIpsum]",
+        "first_level": "[Friday]",
+        "second_level": "",
+        "third_level": "",
+        "fourth_level": ""
+      }
+    ]
+  }
+]

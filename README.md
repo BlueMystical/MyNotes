@@ -7,7 +7,7 @@ Translated to 5 Languages: EN, ES, DE, FR, RU
 
 ![5LANGUAGES](Source/MyNotes/ScreenShot_3.png)
 
-Full Integration with Google Drive, you can automatically store your documents in your Drive:
+Full Integration with Google Drive, you can automatically store your documents in the Cloud and acces them from anywhere!
 
 ![GDRIVE](Source/MyNotes/ScreenShot_2.png)
 

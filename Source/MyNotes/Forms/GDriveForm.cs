@@ -77,16 +77,20 @@ namespace MyNotes.Forms
 				if (Directory.Exists(API.LOCAL_STORAGE))
 				{
 					//Check the last logged user:
-					FileInfo myCredentials = new DirectoryInfo(API.LOCAL_STORAGE)
-						.GetFiles("*.*").OrderByDescending(f => f.LastWriteTime).First();
-
-					if (myCredentials != null)
+					try
 					{
-						var partes = myCredentials.Name.Split(new char[] { '-' }).ToList();
-						txtUserAccount.Text = partes[1];
+						FileInfo myCredentials = new DirectoryInfo(API.LOCAL_STORAGE)
+							.GetFiles("*.*").OrderByDescending(f => f.LastWriteTime).First();
 
-						cmdLogin_Click(sender, e);
+						if (myCredentials != null)
+						{
+							var partes = myCredentials.Name.Split(new char[] { '-' }).ToList();
+							txtUserAccount.Text = partes[1];
+
+							cmdLogin_Click(sender, e);
+						}
 					}
+					catch { }					
 				}
 			}
 			catch (Exception ex)

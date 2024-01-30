@@ -96,6 +96,12 @@
   <ItemGroup>
     <Compile Include="Classes\GDocs.cs" />
     <Compile Include="Classes\PropertyHelper.cs" />
+    <Compile Include="Controls\AccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AccountControl.Designer.cs">
+      <DependentUpon>AccountControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RTFLineNumbers.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -159,6 +165,9 @@
       <DependentUpon>TemplateManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\VO.cs" />
+    <EmbeddedResource Include="Controls\AccountControl.resx">
+      <DependentUpon>AccountControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\VNavBar.resx">
       <DependentUpon>VNavBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +226,7 @@
     <Content Include="Book.ico" />
     <None Include="lib\logo_drive_2020q4_color_2x_web_64dp.png" />
     <None Include="lib\logo_drive_2020q4_color_16x16.png" />
+    <None Include="lib\Lock.png" />
     <Content Include="Resources\Italic_16x16.png" />
     <None Include="Resources\undo_16x16.png" />
     <None Include="Resources\underline_16x16.png" />

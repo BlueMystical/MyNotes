@@ -91,9 +91,25 @@ namespace MyNotes
 			this.contextMenuForTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addRootItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addSubItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+			this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+			this.mnuCtx_ProtectedContent = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuCtx_AddPassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuCtx_ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuCtx_RemovePassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.picShieldProtected = new System.Windows.Forms.PictureBox();
+			this.contextForLayout = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.cxMenu_NewItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_Eliminar = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_FindItems = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_Sep1 = new System.Windows.Forms.ToolStripSeparator();
+			this.cxMenu_ProtectedContent = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_AddPassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.cxMenu_RemovePassword = new System.Windows.Forms.ToolStripMenuItem();
+			this.panelAccounts = new System.Windows.Forms.FlowLayoutPanel();
 			this.richTextBoxEx1 = new MyNotes.RichTextBoxEx();
 			this.textRuler1 = new TextRulerControl.TextRuler();
 			this.lineNumbersForRichText1 = new MyNotes.Controls.LineNumbersForRichText();
@@ -103,14 +119,16 @@ namespace MyNotes
 			this.mnuFile_New_Templates = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuFile_Open = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuFile_OpenGdrive = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuFile_Save = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuFile_SaveAs = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuFile_SaveGDrive = new System.Windows.Forms.ToolStripMenuItem();
 			this.printToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuFile_Print = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuFile_Preview = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuFile_DocProps = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+			this.mnuFile_DocProps = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuFile_Exit = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuLanguage = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,8 +141,6 @@ namespace MyNotes
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
 			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-			this.mnuFile_OpenGdrive = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuFile_SaveGDrive = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -132,6 +148,8 @@ namespace MyNotes
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.contextMenuForTreeView.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picShieldProtected)).BeginInit();
+			this.contextForLayout.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -658,6 +676,8 @@ namespace MyNotes
 			// 
 			// splitContainer1.Panel2
 			// 
+			this.splitContainer1.Panel2.Controls.Add(this.picShieldProtected);
+			this.splitContainer1.Panel2.Controls.Add(this.panelAccounts);
 			this.splitContainer1.Panel2.Controls.Add(this.richTextBoxEx1);
 			this.splitContainer1.Panel2.Controls.Add(this.textRuler1);
 			this.splitContainer1.Panel2.Controls.Add(this.lineNumbersForRichText1);
@@ -692,45 +712,183 @@ namespace MyNotes
 			this.contextMenuForTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRootItemToolStripMenuItem,
             this.addSubItemToolStripMenuItem,
-            this.deleteItemToolStripMenuItem,
             this.toolStripSeparator7,
-            this.editItemToolStripMenuItem});
+            this.deleteItemToolStripMenuItem,
+            this.editItemToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.mnuCtx_ProtectedContent});
 			this.contextMenuForTreeView.Name = "contextMenuForTreeView";
-			this.contextMenuForTreeView.Size = new System.Drawing.Size(158, 98);
+			this.contextMenuForTreeView.Size = new System.Drawing.Size(172, 126);
 			this.contextMenuForTreeView.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuForTreeView_Opening);
 			// 
 			// addRootItemToolStripMenuItem
 			// 
 			this.addRootItemToolStripMenuItem.Name = "addRootItemToolStripMenuItem";
-			this.addRootItemToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.addRootItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.addRootItemToolStripMenuItem.Text = "Add Root Item..";
 			this.addRootItemToolStripMenuItem.Click += new System.EventHandler(this.addRootItemToolStripMenuItem_Click);
 			// 
 			// addSubItemToolStripMenuItem
 			// 
 			this.addSubItemToolStripMenuItem.Name = "addSubItemToolStripMenuItem";
-			this.addSubItemToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.addSubItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.addSubItemToolStripMenuItem.Text = "Add SubItem..";
 			this.addSubItemToolStripMenuItem.Click += new System.EventHandler(this.addSubItemToolStripMenuItem_Click);
-			// 
-			// deleteItemToolStripMenuItem
-			// 
-			this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-			this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-			this.deleteItemToolStripMenuItem.Text = "Delete Item..";
-			this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator7
 			// 
 			this.toolStripSeparator7.Name = "toolStripSeparator7";
-			this.toolStripSeparator7.Size = new System.Drawing.Size(154, 6);
+			this.toolStripSeparator7.Size = new System.Drawing.Size(168, 6);
+			// 
+			// deleteItemToolStripMenuItem
+			// 
+			this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
+			this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.deleteItemToolStripMenuItem.Text = "Delete Item..";
+			this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
 			// 
 			// editItemToolStripMenuItem
 			// 
 			this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-			this.editItemToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.editItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.editItemToolStripMenuItem.Text = "Edit Item..";
 			this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator9
+			// 
+			this.toolStripSeparator9.Name = "toolStripSeparator9";
+			this.toolStripSeparator9.Size = new System.Drawing.Size(168, 6);
+			// 
+			// mnuCtx_ProtectedContent
+			// 
+			this.mnuCtx_ProtectedContent.Checked = true;
+			this.mnuCtx_ProtectedContent.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.mnuCtx_ProtectedContent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCtx_AddPassword,
+            this.mnuCtx_ChangePassword,
+            this.mnuCtx_RemovePassword});
+			this.mnuCtx_ProtectedContent.Name = "mnuCtx_ProtectedContent";
+			this.mnuCtx_ProtectedContent.Size = new System.Drawing.Size(171, 22);
+			this.mnuCtx_ProtectedContent.Text = "Protected Content";
+			// 
+			// mnuCtx_AddPassword
+			// 
+			this.mnuCtx_AddPassword.Name = "mnuCtx_AddPassword";
+			this.mnuCtx_AddPassword.Size = new System.Drawing.Size(168, 22);
+			this.mnuCtx_AddPassword.Text = "Add Password";
+			this.mnuCtx_AddPassword.Click += new System.EventHandler(this.mnuCtx_AddPassword_Click);
+			// 
+			// mnuCtx_ChangePassword
+			// 
+			this.mnuCtx_ChangePassword.Name = "mnuCtx_ChangePassword";
+			this.mnuCtx_ChangePassword.Size = new System.Drawing.Size(168, 22);
+			this.mnuCtx_ChangePassword.Text = "Change Password";
+			this.mnuCtx_ChangePassword.Click += new System.EventHandler(this.mnuCtx_ChangePassword_Click);
+			// 
+			// mnuCtx_RemovePassword
+			// 
+			this.mnuCtx_RemovePassword.Name = "mnuCtx_RemovePassword";
+			this.mnuCtx_RemovePassword.Size = new System.Drawing.Size(168, 22);
+			this.mnuCtx_RemovePassword.Text = "RemovePassword";
+			this.mnuCtx_RemovePassword.Click += new System.EventHandler(this.mnuCtx_RemovePassword_Click);
+			// 
+			// picShieldProtected
+			// 
+			this.picShieldProtected.ContextMenuStrip = this.contextForLayout;
+			this.picShieldProtected.Image = global::MyNotes.Properties.Resources.Lock;
+			this.picShieldProtected.Location = new System.Drawing.Point(75, 58);
+			this.picShieldProtected.Name = "picShieldProtected";
+			this.picShieldProtected.Size = new System.Drawing.Size(223, 150);
+			this.picShieldProtected.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.picShieldProtected.TabIndex = 5;
+			this.picShieldProtected.TabStop = false;
+			this.picShieldProtected.Visible = false;
+			// 
+			// contextForLayout
+			// 
+			this.contextForLayout.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cxMenu_NewItem,
+            this.cxMenu_Eliminar,
+            this.cxMenu_FindItems,
+            this.cxMenu_Sep1,
+            this.cxMenu_ProtectedContent});
+			this.contextForLayout.Name = "contextForLayout";
+			this.contextForLayout.Size = new System.Drawing.Size(181, 120);
+			this.contextForLayout.Opening += new System.ComponentModel.CancelEventHandler(this.contextForLayout_Opening);
+			// 
+			// cxMenu_NewItem
+			// 
+			this.cxMenu_NewItem.Name = "cxMenu_NewItem";
+			this.cxMenu_NewItem.Size = new System.Drawing.Size(180, 22);
+			this.cxMenu_NewItem.Text = "Add Item";
+			this.cxMenu_NewItem.Click += new System.EventHandler(this._CTRL_OnRequestNewAccount);
+			// 
+			// cxMenu_Eliminar
+			// 
+			this.cxMenu_Eliminar.Name = "cxMenu_Eliminar";
+			this.cxMenu_Eliminar.Size = new System.Drawing.Size(180, 22);
+			this.cxMenu_Eliminar.Text = "Delete Item";
+			this.cxMenu_Eliminar.Click += new System.EventHandler(this._CTRL_OnRequestDeleteAccount);
+			// 
+			// cxMenu_FindItems
+			// 
+			this.cxMenu_FindItems.Name = "cxMenu_FindItems";
+			this.cxMenu_FindItems.Size = new System.Drawing.Size(180, 22);
+			this.cxMenu_FindItems.Text = "Find Item";
+			this.cxMenu_FindItems.Click += new System.EventHandler(this.cxMenu_FindItems_Click);
+			// 
+			// cxMenu_Sep1
+			// 
+			this.cxMenu_Sep1.Name = "cxMenu_Sep1";
+			this.cxMenu_Sep1.Size = new System.Drawing.Size(177, 6);
+			// 
+			// cxMenu_ProtectedContent
+			// 
+			this.cxMenu_ProtectedContent.Checked = true;
+			this.cxMenu_ProtectedContent.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cxMenu_ProtectedContent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cxMenu_AddPassword,
+            this.cxMenu_ChangePassword,
+            this.cxMenu_RemovePassword});
+			this.cxMenu_ProtectedContent.Name = "cxMenu_ProtectedContent";
+			this.cxMenu_ProtectedContent.Size = new System.Drawing.Size(180, 22);
+			this.cxMenu_ProtectedContent.Text = "Protected Content";
+			// 
+			// cxMenu_AddPassword
+			// 
+			this.cxMenu_AddPassword.Name = "cxMenu_AddPassword";
+			this.cxMenu_AddPassword.Size = new System.Drawing.Size(167, 22);
+			this.cxMenu_AddPassword.Text = "Add Password";
+			this.cxMenu_AddPassword.Click += new System.EventHandler(this.mnuCtx_AddPassword_Click);
+			// 
+			// cxMenu_ChangePassword
+			// 
+			this.cxMenu_ChangePassword.Name = "cxMenu_ChangePassword";
+			this.cxMenu_ChangePassword.Size = new System.Drawing.Size(167, 22);
+			this.cxMenu_ChangePassword.Text = "ChangePassword";
+			this.cxMenu_ChangePassword.Click += new System.EventHandler(this.mnuCtx_ChangePassword_Click);
+			// 
+			// cxMenu_RemovePassword
+			// 
+			this.cxMenu_RemovePassword.Name = "cxMenu_RemovePassword";
+			this.cxMenu_RemovePassword.Size = new System.Drawing.Size(167, 22);
+			this.cxMenu_RemovePassword.Text = "RemovePassword";
+			this.cxMenu_RemovePassword.Click += new System.EventHandler(this.mnuCtx_RemovePassword_Click);
+			// 
+			// panelAccounts
+			// 
+			this.panelAccounts.AllowDrop = true;
+			this.panelAccounts.AutoScroll = true;
+			this.panelAccounts.ContextMenuStrip = this.contextForLayout;
+			this.panelAccounts.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+			this.panelAccounts.Location = new System.Drawing.Point(238, 241);
+			this.panelAccounts.Name = "panelAccounts";
+			this.panelAccounts.Size = new System.Drawing.Size(200, 100);
+			this.panelAccounts.TabIndex = 4;
+			this.panelAccounts.TabStop = true;
+			this.panelAccounts.Visible = false;
+			this.panelAccounts.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelAccounts_DragDrop);
+			this.panelAccounts.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelAccounts_DragEnter);
 			// 
 			// richTextBoxEx1
 			// 
@@ -739,6 +897,7 @@ namespace MyNotes
 			this.richTextBoxEx1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.richTextBoxEx1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.richTextBoxEx1.EnableAutoDragDrop = true;
+			this.richTextBoxEx1.Font = new System.Drawing.Font("Lucida Console", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.richTextBoxEx1.HideSelection = false;
 			this.richTextBoxEx1.Location = new System.Drawing.Point(20, 20);
 			this.richTextBoxEx1.Name = "richTextBoxEx1";
@@ -873,6 +1032,13 @@ namespace MyNotes
 			this.mnuFile_Open.Text = "&Open..";
 			this.mnuFile_Open.Click += new System.EventHandler(this.mnuFile_Open_Click);
 			// 
+			// mnuFile_OpenGdrive
+			// 
+			this.mnuFile_OpenGdrive.Name = "mnuFile_OpenGdrive";
+			this.mnuFile_OpenGdrive.Size = new System.Drawing.Size(209, 22);
+			this.mnuFile_OpenGdrive.Text = "Open from Google Drive..";
+			this.mnuFile_OpenGdrive.Click += new System.EventHandler(this.mnuFile_OpenGdrive_Click);
+			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
@@ -891,6 +1057,13 @@ namespace MyNotes
 			this.mnuFile_SaveAs.Size = new System.Drawing.Size(209, 22);
 			this.mnuFile_SaveAs.Text = "Save &As..";
 			this.mnuFile_SaveAs.Click += new System.EventHandler(this.mnuFile_SaveAs_Click);
+			// 
+			// mnuFile_SaveGDrive
+			// 
+			this.mnuFile_SaveGDrive.Name = "mnuFile_SaveGDrive";
+			this.mnuFile_SaveGDrive.Size = new System.Drawing.Size(209, 22);
+			this.mnuFile_SaveGDrive.Text = "Save to Google Drive..";
+			this.mnuFile_SaveGDrive.Click += new System.EventHandler(this.mnuFile_SaveGDrive_Click);
 			// 
 			// printToolStripMenuItem
 			// 
@@ -911,17 +1084,17 @@ namespace MyNotes
 			this.mnuFile_Preview.Text = "&Preview..";
 			this.mnuFile_Preview.Click += new System.EventHandler(this.mnuFile_Preview_Click);
 			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 6);
+			// 
 			// mnuFile_DocProps
 			// 
 			this.mnuFile_DocProps.Name = "mnuFile_DocProps";
 			this.mnuFile_DocProps.Size = new System.Drawing.Size(209, 22);
 			this.mnuFile_DocProps.Text = "&Document Properties..";
 			this.mnuFile_DocProps.Click += new System.EventHandler(this.mnuFile_DocProps_Click);
-			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 6);
 			// 
 			// mnuFile_Exit
 			// 
@@ -1012,20 +1185,6 @@ namespace MyNotes
 			this.printPreviewDialog1.Name = "printPreviewDialog1";
 			this.printPreviewDialog1.Visible = false;
 			// 
-			// mnuFile_OpenGdrive
-			// 
-			this.mnuFile_OpenGdrive.Name = "mnuFile_OpenGdrive";
-			this.mnuFile_OpenGdrive.Size = new System.Drawing.Size(209, 22);
-			this.mnuFile_OpenGdrive.Text = "Open from Google Drive..";
-			this.mnuFile_OpenGdrive.Click += new System.EventHandler(this.mnuFile_OpenGdrive_Click);
-			// 
-			// mnuFile_SaveGDrive
-			// 
-			this.mnuFile_SaveGDrive.Name = "mnuFile_SaveGDrive";
-			this.mnuFile_SaveGDrive.Size = new System.Drawing.Size(209, 22);
-			this.mnuFile_SaveGDrive.Text = "Save to Google Drive..";
-			this.mnuFile_SaveGDrive.Click += new System.EventHandler(this.mnuFile_SaveGDrive_Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1051,6 +1210,8 @@ namespace MyNotes
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.contextMenuForTreeView.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.picShieldProtected)).EndInit();
+			this.contextForLayout.ResumeLayout(false);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -1154,6 +1315,22 @@ namespace MyNotes
 		private System.Windows.Forms.ToolStripButton toolInsertLink;
 		private System.Windows.Forms.ToolStripMenuItem mnuFile_OpenGdrive;
 		private System.Windows.Forms.ToolStripMenuItem mnuFile_SaveGDrive;
+		private System.Windows.Forms.FlowLayoutPanel panelAccounts;
+		private System.Windows.Forms.ContextMenuStrip contextForLayout;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_NewItem;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_FindItems;
+		private System.Windows.Forms.ToolStripSeparator cxMenu_Sep1;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_ProtectedContent;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_AddPassword;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_RemovePassword;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_ChangePassword;
+		private System.Windows.Forms.ToolStripMenuItem cxMenu_Eliminar;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+		private System.Windows.Forms.ToolStripMenuItem mnuCtx_ProtectedContent;
+		private System.Windows.Forms.ToolStripMenuItem mnuCtx_AddPassword;
+		private System.Windows.Forms.ToolStripMenuItem mnuCtx_ChangePassword;
+		private System.Windows.Forms.ToolStripMenuItem mnuCtx_RemovePassword;
+		private System.Windows.Forms.PictureBox picShieldProtected;
 	}
 }
 

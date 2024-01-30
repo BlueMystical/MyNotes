@@ -1,6 +1,7 @@
 ﻿using ControlTreeView;
 using FontAwesome.Sharp;
 using MyNotes.Classes;
+using MyNotes.Controls;
 using MyNotes.Forms;
 using MyNotes.PropertyHelper;
 using System;
@@ -28,6 +29,8 @@ namespace MyNotes
 
 		private string Language { get; set; } = "en";
 		private bool LanguageChanged = false;
+
+		/// <summary>Full path to the currently opened file</summary>
 		private string CurrentFile { get; set; }
 		private string AppExePath = AppDomain.CurrentDomain.BaseDirectory;
 		private List<MyTemplate> Templates = new List<MyTemplate>();
@@ -36,6 +39,8 @@ namespace MyNotes
 		private SearchResults searchResults = null;
 		private int PrintableWidth = 0;
 		private bool AutoExpandSelected { get; set; } = true;
+
+		private bool IsValidated { get; set; } = false;
 
 		#endregion
 
@@ -235,7 +240,7 @@ namespace MyNotes
 
 				toolCopy.Text = CurrentLanguage.GetTranslation("Copy"); toolCopy.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("copy_16x16") : IconChar.Copy.ToBitmap(16, 16, Color.Black);                                                                                       //
 				toolCut.Text = CurrentLanguage.GetTranslation("Cut"); toolCut.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("cut_16x16") : IconChar.Cut.ToBitmap(16, 16, Color.Black);
-				toolPaste.Text = CurrentLanguage.GetTranslation("Paste");toolPaste.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("paste_16x16") : IconChar.Paste.ToBitmap(16, 16, Color.Black);
+				toolPaste.Text = CurrentLanguage.GetTranslation("Paste"); toolPaste.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("paste_16x16") : IconChar.Paste.ToBitmap(16, 16, Color.Black);
 				toolUndo.Text = CurrentLanguage.GetTranslation("Undo"); toolUndo.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("undo_16x16") : IconChar.Undo.ToBitmap(16, 16, Color.Black);
 				toolRedo.Text = CurrentLanguage.GetTranslation("Redo"); toolRedo.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("redo_16x16") : IconChar.Redo.ToBitmap(16, 16, Color.Black);
 
@@ -264,7 +269,6 @@ namespace MyNotes
 				mnuFile_DocProps.Text = CurrentLanguage.GetTranslation("DocProps"); mnuFile_DocProps.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("edit_16x16") : IconChar.IdCard.ToBitmap(16, 16, Color.Black);
 				toolInsertImage.Text = CurrentLanguage.GetTranslation("InsertImage"); toolInsertImage.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("insertimage_16x16") : IconChar.Image.ToBitmap(18, 18, Color.Black);
 				toolInsertTable.Text = CurrentLanguage.GetTranslation("InsertTable"); toolInsertTable.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("all_borders_16x16") : IconChar.Table.ToBitmap(16, 16, Color.Black);
-
 				toolInsertLink.Text = CurrentLanguage.GetTranslation("InsertLink"); toolInsertLink.Image = IconChar.Link.ToBitmap(16, 16, Color.Black);
 
 				toolLabelFind.Text = CurrentLanguage.GetTranslation("Find");
@@ -274,7 +278,7 @@ namespace MyNotes
 				FindAlldocs.Text = CurrentLanguage.GetTranslation("AllDocuments");
 
 				toolReplace.Text = CurrentLanguage.GetTranslation("FindReplace"); toolReplace.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("replace_16x16") : IconChar.SearchPlus.ToBitmap(16, 16, Color.Black);
-				
+
 				cmdTreeCommands.Text = CurrentLanguage.GetTranslation("Tree"); cmdTreeCommands.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("show_16x16") : IconChar.Eye.ToBitmap(16, 16, Color.Black);
 				mnuAutoExpandSelected.Checked = this.AutoExpandSelected;
 
@@ -282,6 +286,22 @@ namespace MyNotes
 				mnuFile_SaveGDrive.Image = !UseAwesomeIcons ? (Bitmap)Properties.Resources.ResourceManager.GetObject("logo_drive_2020q4_color_16x16") : IconChar.GoogleDrive.ToBitmap(16, 16, Color.Black);
 				mnuFile_OpenGdrive.Text = CurrentLanguage.GetTranslation("GDrive_Open");
 				mnuFile_SaveGDrive.Text = CurrentLanguage.GetTranslation("GDrive_Save");
+
+				cxMenu_NewItem.Text = CurrentLanguage.GetTranslation("NewEntry");
+				cxMenu_Eliminar.Text = CurrentLanguage.GetTranslation("DeleteDoc");
+				cxMenu_FindItems.Text = CurrentLanguage.GetTranslation("Find");
+
+				editItemToolStripMenuItem.Text = CurrentLanguage.GetTranslation("EditItems").Split('|')[1];
+
+				var PassModifications = CurrentLanguage.GetTranslation("PasswordModifications").Split('|');
+				mnuCtx_ProtectedContent.Text = CurrentLanguage.GetTranslation("ProtectedContent");
+				cxMenu_ProtectedContent.Text = CurrentLanguage.GetTranslation("ProtectedContent");
+				cxMenu_AddPassword.Text = PassModifications[0];
+				mnuCtx_AddPassword.Text = PassModifications[0];
+				mnuCtx_ChangePassword.Text = PassModifications[1];
+				cxMenu_ChangePassword.Text = PassModifications[1];
+				mnuCtx_RemovePassword.Text = PassModifications[2];
+				cxMenu_RemovePassword.Text = PassModifications[2];
 
 				EnableContextMenu(this.richTextBoxEx1);
 			}
@@ -1094,11 +1114,68 @@ namespace MyNotes
 				DE.Translations["FileLabels"] = "Datei|Ordner|Größe|Erstellt|Geändert";
 				RU.Translations["FileLabels"] = "Файл|Папка|Размер|Создано|Изменено";
 
-				EN.Translations["NameValue"] = "Name|Description|Value";
-				ES.Translations["NameValue"] = "Nombre|Descripción|Valor";
-				FR.Translations["NameValue"] = "Nom|Description|Valeur";
-				DE.Translations["NameValue"] = "Name|Beschreibung|Wert";
-				RU.Translations["NameValue"] = "Имя|Описание|Значение";
+				EN.Translations["NameValue"] = "Name|Description|Value|Type";
+				ES.Translations["NameValue"] = "Nombre|Descripción|Valor|Tipo";
+				FR.Translations["NameValue"] = "Nom|Description|Valeur|Taper";
+				DE.Translations["NameValue"] = "Name|Beschreibung|Wert|Typ";
+				RU.Translations["NameValue"] = "Имя|Описание|Значение|Тип";
+
+				//-------------------------------------------------
+				EN.Translations["Passwords"] = "Password|New Password|Old Password|Password Changed!|Invalid Password!";
+				ES.Translations["Passwords"] = "Contraseña|Nueva Contraseña|Contraseña Anterior|Contraseña Cambiada!|Contraseña Inválida!";
+				FR.Translations["Passwords"] = "Mot de passe|Nouveau mot de passe|Ancien mot de passe|Mot de passe modifié !|Mot de passe invalide !";
+				DE.Translations["Passwords"] = "Passwort|Neues Passwort|Altes Passwort|Passwort geändert!|Ungültiges Passwort!";
+				RU.Translations["Passwords"] = "Пароль|Новый пароль|Старый пароль|Пароль изменен!|Неверный пароль!";
+
+				EN.Translations["PasswordModifications"] = "Add Password..|Change Password..|Remove Password..|Current password needs verification";  
+				ES.Translations["PasswordModifications"] = "Agregar Contraseña..|Cambiar Contraseña..|Quitar Contraseña..|La contraseña actual necesita verificación";
+				FR.Translations["PasswordModifications"] = "Ajouter un mot de passe..|Changer le mot de passe..|Supprimer le mot de passe..|Le mot de passe actuel doit être vérifié";
+				DE.Translations["PasswordModifications"] = "Passwort hinzufügen..|Kennwort ändern..|Passwort entfernen..|Das aktuelle Passwort muss überprüft werden";
+				RU.Translations["PasswordModifications"] = "Добавить пароль..Изменить пароль|Удалить пароль..|Текущий пароль требует подтверждения";
+
+				EN.Translations["PasswordChangedResume"] = "The new Password for this content is:\r\n'{0}'\r\nDo not forget it!";
+				ES.Translations["PasswordChangedResume"] = "La nueva contraseña para este contenido es:\r\n'{0}'\r\n ¡No la olvides!";
+				FR.Translations["PasswordChangedResume"] = "Le nouveau mot de passe pour ce contenu est :\r\n'{0}'\r\n Ne l'oubliez pas !";
+				DE.Translations["PasswordChangedResume"] = "Das neue Passwort für diesen Inhalt lautet:\r\n'{0}'\r\n Vergessen Sie es nicht!";
+				RU.Translations["PasswordChangedResume"] = "Новый пароль для этого контента:\r\n'{0}'\r\n Не забывайте его!";
+
+				EN.Translations["ProtectedContent"] = "Protected Content";
+				ES.Translations["ProtectedContent"] = "Contenido Protegido";
+				FR.Translations["ProtectedContent"] = "Contenu protégé";
+				DE.Translations["ProtectedContent"] = "Geschützter Inhalt";
+				RU.Translations["ProtectedContent"] = "Защищенный контент";
+
+				EN.Translations["LockedContent"] = "This Content is Locked!|Unlock?";
+				ES.Translations["LockedContent"] = "Este Contenido está Protegido!|Desbloquear?";
+				FR.Translations["LockedContent"] = "Ce contenu est verrouillé !|Déverrouiller ?";
+				DE.Translations["LockedContent"] = "Dieser Inhalt ist gesperrt!|Entsperren?";
+				RU.Translations["LockedContent"] = "Этот контент заблокирован!|Разблокировать?";
+
+				EN.Translations["Q:ProtectContent"] = "Do you wish to Protect this Content?";
+				ES.Translations["Q:ProtectContent"] = "Desea Proteger este Contenido?";
+				FR.Translations["Q:ProtectContent"] = "Souhaitez-vous protéger ce contenu ?";
+				DE.Translations["Q:ProtectContent"] = "Möchten Sie diesen Inhalt schützen?";
+				RU.Translations["Q:ProtectContent"] = "Хотите ли вы защитить этот контент?";
+
+			
+
+				EN.Translations["EditItems"] = "Edit Entry|Edit Item|Edit Document";
+				ES.Translations["EditItems"] = "Editar entrada|Editar elemento|Editar documento";
+				FR.Translations["EditItems"] = "Modifier l'entrée|Modifier l'élément|Modifier le document";
+				DE.Translations["EditItems"] = "Eintrag bearbeiten|Element bearbeiten|Dokument bearbeiten";
+				RU.Translations["EditItems"] = "Редактировать запись|Редактировать элемент|Редактировать документ";
+
+				EN.Translations["MsgButtons"] = "OK|Cancel|Yes|No|Continue";
+				ES.Translations["MsgButtons"] = "Aceptar|Cancelar|Si|No|Continuar";
+				FR.Translations["MsgButtons"] = "Accepter|Annuler|Oui|Non|Continuer";
+				DE.Translations["MsgButtons"] = "Akzeptieren|Abbrechen|Ja|Nein|Weiter";
+				RU.Translations["MsgButtons"] = "Принять|Отменить|Да|Нет|Продолжить";
+
+				EN.Translations[""] = "";
+				ES.Translations[""] = "";
+				FR.Translations[""] = "";
+				DE.Translations[""] = "";
+				RU.Translations[""] = "";
 
 				//EN.Translations[""] = "";
 				//ES.Translations[""] = "";
@@ -1160,11 +1237,12 @@ namespace MyNotes
 					switch (Ext)
 					{
 						case ".note": this.Document = Util.DeSerialize_FromJSON<MyNoteDocument>(this.CurrentFile); break;
-						case ".json": this.Document = Util.DeSerialize_FromJSON<MyNoteDocument>(this.CurrentFile); break;
-						case ".epub": break; //TODO: Abrir EPUB
+						case ".json": this.Document = LoadSimpleDocument(Util.JSON_ReadFile(this.CurrentFile), "JSON"); break;
+						case ".txt": this.Document = LoadSimpleDocument(Util.ReadTextFile(this.CurrentFile, Util.TextEncoding.UTF8), "TXT"); break;
+						case ".rtf": this.Document = LoadSimpleDocument(Util.ReadTextFile(this.CurrentFile, Util.TextEncoding.UTF8), "RTF"); break;
+						case ".epub": throw new NotImplementedException("EPUB Support is not implemented yet."); break; //TODO: Abrir EPUB
 						default:
 							this.Document = null;
-							//TODO: Importar TXT o RTF en un nuevo nodo del documento actual o en un nuevo doc basado en 'EmptyTemplate'
 							break;
 					}
 					Document_Show();
@@ -1176,6 +1254,7 @@ namespace MyNotes
 			}
 			finally { this.Cursor = Cursors.Default; }
 		}
+
 		private void Document_Show()
 		{
 			/* Show the current Document in the Treeview  */
@@ -1205,6 +1284,7 @@ namespace MyNotes
 
 						/* SETUP THE COVER */
 						string _caption = CurrentLanguage.GetTranslation("Cover");
+
 						CTreeNode _Cover = new CTreeNode(_caption, new Button() { Text = _caption, Tag = Document.Metadata });
 						_Cover.Tag = Document.Metadata;
 						_Cover.Control.Click += Control_Click;
@@ -1212,7 +1292,7 @@ namespace MyNotes
 						SizeF textSize = _Cover.GetControlFontSize(_caption);
 						if (textSize.Width > 70) _Cover.Control.Width = (int)(textSize.Width + 10);
 
-						cTreeView1.Nodes.Add(_Cover);						
+						cTreeView1.Nodes.Add(_Cover);
 					}
 
 					int index = 0;
@@ -1226,6 +1306,7 @@ namespace MyNotes
 					}
 					cTreeView1.CollapseAll();
 					cTreeView1.EndUpdate();
+
 					ShowNodeContent(Document.Metadata);
 				}
 			}
@@ -1236,35 +1317,163 @@ namespace MyNotes
 			finally { this.Cursor = Cursors.Default; }
 		}
 
-		
-
-		public ControlTreeView.CTreeNode CreateTreeNodeEx(DocContent nodeInfo, string Parent, int index = -1)
+		public void ShowNodeContent(object nodeInfo)
 		{
-			CTreeNode _root = new CTreeNode(nodeInfo.Title, new Button() { Text = nodeInfo.Title });
-			_root.Control.Click += Control_Click;
-			_root.Control.Tag = nodeInfo;
-			_root.Tag = nodeInfo;
-			_root.ImageKey += (index >= 0) ?
-				string.Format("{0}.{1:D2}", Parent, index) :
-				Parent;
-
-			SizeF textSize = _root.GetControlFontSize(nodeInfo.Title);
-			if (textSize.Width > 70) _root.Control.Width = (int)(textSize.Width + 10);
-
-			if (nodeInfo.Childs != null)
+			try
 			{
-				int i = 0;
-				foreach (var child in nodeInfo.Childs)
+				if (nodeInfo != null)
 				{
-					_root.Nodes.Add(CreateTreeNodeEx(child, _root.ImageKey, i));
-					i++;
+					panelAccounts.Controls.Clear();
+					panelAccounts.Visible = false;
+					this.richTextBoxEx1.Clear();
+
+					if (nodeInfo is DocContent) //<- Is a regular Content
+					{
+						var _Content = nodeInfo as DocContent;
+						if (_Content != null)
+						{
+							bool ShowContent = true; //<- Determina si se Muestra el Contenido Protegido
+							
+							if (_Content.Security != null && _Content.Security.IsSecured)
+							{	
+								#region Security Validations
+
+								if (_Content.Security != null && _Content.Security.IsSecured && !_Content.Security.IsValidated)
+								{
+									ShowContent = false;
+								}
+								if (!ShowContent)
+								{
+									if (!this.IsValidated)
+									{
+										try
+										{
+											this.IsValidated = ValidateContent(_Content.Security);
+										}
+										catch (Exception ex)
+										{
+											MessageBox.Show(ex.Message, "303 - Forbidden", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+										}
+									}
+									ShowContent = IsValidated;
+								}
+
+								#endregion
+
+								if (Util.Base64_IsEncoded(_Content.Content))
+								{
+									_Content.Content = Util.Base64_Decode(_Content.Content);
+								}
+							}
+							switch (_Content.DocType)
+							{
+								case DocTypes.RichTextFormat:
+									if (_Content.Content.Contains(@"{\rtf1"))
+									{
+										this.richTextBoxEx1.Rtf = _Content.Content;
+									}
+									else
+									{
+										this.richTextBoxEx1.Text = _Content.Content;
+									}
+									picShieldProtected.Visible = !ShowContent;
+									break;
+
+								case DocTypes.PlainText:
+									this.richTextBoxEx1.Text = _Content.Content;
+									picShieldProtected.Visible = !ShowContent;
+									break;
+
+								case DocTypes.AccountManager:
+									#region Control de Cuentas
+
+									AccountManager AC = new AccountManager();
+									if (!string.IsNullOrEmpty(_Content.Content))
+									{
+										AC = Util.DeSerialize_FromJSON_String<AccountManager>(_Content.Content);
+
+										if (this.IsValidated)
+										{
+											panelAccounts.Tag = AC;
+											SetCurrentChanges();
+										}
+
+										foreach (var cuenta in AC.Accounts)
+										{
+											var _CTRL = new AccountControl(cuenta, !ShowContent, this.CurrentLanguage);
+											_CTRL.OnRequestNewAccount += _CTRL_OnRequestNewAccount;
+											_CTRL.OnRequestDeleteAccount += _CTRL_OnRequestDeleteAccount;
+											_CTRL.OnSelection += (object sender, EventArgs e) =>
+											{
+
+											};
+											panelAccounts.Controls.Add(_CTRL);
+										}
+									}
+									if (AC != null)
+									{
+										panelAccounts.Visible = true;
+										panelAccounts.Tag = AC;
+										panelAccounts.Dock = DockStyle.Fill;
+									}
+
+									#endregion
+									break;
+								default:
+									break;
+							}
+							picShieldProtected.Dock = DockStyle.Fill;
+						}
+						richTextBoxEx1.ReadOnly = false;
+					}
+
+					if (nodeInfo is DocMetadata) //<- Is the Cover
+					{
+						richTextBoxEx1.ReadOnly = false;
+						string rtf = BuildRTFCover(Document.Metadata);
+						if (!string.IsNullOrEmpty(rtf))
+						{
+							richTextBoxEx1.Rtf = rtf;
+						}
+
+						richTextBoxEx1.ReadOnly = true;
+					}
 				}
 			}
-
-			return _root;
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
-		private void Document_Save(bool SaveAs = false, bool ReLoadDoc = true)
+
+
+		public MyNoteDocument LoadSimpleDocument(string pFileContent, string pDocType)
+		{
+			MyNoteDocument _ret = null;
+			try
+			{
+				_ret = new MyNoteDocument("[Untitled]", Util.GetUserName());
+				_ret.Metadata.Language = this.Language;
+				_ret.Metadata.Title = System.IO.Path.GetFileName(this.CurrentFile); //<- Nombre del Archivo con Extension (Sin Ruta)
+				_ret.Metadata.Summary = string.Format("A simple '{0}' file.", pDocType);
+
+				_ret.Content.Add(new DocContent
+				{
+					ID = pDocType,
+					Title = System.IO.Path.GetFileNameWithoutExtension(this.CurrentFile), //<- Nombre sin Extension ni Path
+					Content = pFileContent,
+					DocType = DocTypes.PlainText
+				});
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return _ret;
+		}
+
+		private async void Document_Save(bool SaveAs = false, bool ReLoadDoc = true)
 		{
 			try
 			{
@@ -1272,15 +1481,128 @@ namespace MyNotes
 				{
 					this.Cursor = Cursors.WaitCursor;
 
-					//Set current changes in Editor:
-					if (cTreeView1.CurrentNode != null && cTreeView1.CurrentNode.Tag is DocContent nodeInfo)
+					SetCurrentChanges();
+
+					if (string.IsNullOrEmpty(this.CurrentFile) || SaveAs)
 					{
-						if (this.richTextBoxEx1.Modified)
+						string IniDir = string.IsNullOrEmpty(this.CurrentFile) ?
+							Environment.GetFolderPath(Environment.SpecialFolder.Desktop) :
+							System.IO.Path.GetDirectoryName(this.CurrentFile);
+
+						SaveFileDialog SFDialog = new SaveFileDialog()
 						{
-							nodeInfo.Content = this.richTextBoxEx1.Rtf;
+							Filter = "Note Document|*.note|Json Document|*.json|EPUB Document|*.epub|RichTextFormat|*.rtf|Plain Text|*.txt",
+							FilterIndex = 0,
+							DefaultExt = "note",
+							AddExtension = true,
+							CheckPathExists = true,
+							OverwritePrompt = true,
+							InitialDirectory = IniDir
+						};
+						if (SFDialog.ShowDialog() == DialogResult.OK)
+						{
+							this.CurrentFile = SFDialog.FileName;
 						}
 					}
 
+					if (!string.IsNullOrEmpty(this.CurrentFile))
+					{
+						await SaveGoogleDrive();
+
+						string Ext = System.IO.Path.GetExtension(CurrentFile); //<- Extension del archivo
+						switch (Ext)
+						{
+							case ".note": Util.Serialize_ToJSON(this.CurrentFile, Document); break;
+							case ".json": Util.JSON_WriteFile(this.CurrentFile, Document.Content[0].Content); break;
+							case ".rtf": richTextBoxEx1.SaveFile(this.CurrentFile, RichTextBoxStreamType.RichText); break;
+							case ".txt": richTextBoxEx1.SaveFile(this.CurrentFile, RichTextBoxStreamType.PlainText); break;
+							default: //TODO: Gragar en EPUB
+								break;
+						}
+
+						if (File.Exists(CurrentFile))
+						{
+							Invoke((MethodInvoker)(() =>
+							{
+								lblStatus2.Text = CurrentLanguage.GetTranslation("Saved");
+								if (ReLoadDoc) Document_Open(this.CurrentFile);
+							}));
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally { this.Cursor = Cursors.Default; }
+		}
+		private void SetCurrentChanges()
+		{
+			#region Set current changes in Editor:
+
+			if (cTreeView1.CurrentNode != null && cTreeView1.CurrentNode.Tag != null)
+			{
+				var nodeInfo = GetCurrentContent();
+				if (nodeInfo != null)
+				{
+					switch (nodeInfo.DocType)
+					{
+						case DocTypes.RichTextFormat:
+							if (this.richTextBoxEx1.Modified)
+							{
+								nodeInfo.Content = this.richTextBoxEx1.Rtf;
+							}
+							break;
+
+						case DocTypes.PlainText:
+							if (this.richTextBoxEx1.Modified)
+							{
+								nodeInfo.Content = this.richTextBoxEx1.Text;
+							}
+							break;
+
+						case DocTypes.AccountManager:
+							if (panelAccounts.Tag != null)
+							{
+								AccountManager AC = panelAccounts.Tag as AccountManager;
+								nodeInfo.Content = Util.Serialize_ToJSON(AC, Beautify: false);
+							}
+							break;
+					}
+
+					if (nodeInfo.Security != null && nodeInfo.Security.IsSecured)
+					{
+						nodeInfo.Content = Util.Base64_Encode(nodeInfo.Content);
+					}
+
+					/*
+					//Locate the Parent Node in the DataSource:
+					var SelectedNode = cTreeView1.CurrentNode;
+					var Path = SelectedNode.GetNodePath();
+					Path[0] = Path[0] - 1; //<- The cover doesnt counts
+
+					DocContent Parent = Util.GetItem(this.Document.Content, Path);
+					if (Parent != null)
+					{
+						Parent = nodeInfo;
+					}
+					*/
+				}
+			}
+
+			#endregion
+		}
+
+		//TODO:
+		protected async void SaveDocumentAsync(bool SaveAs = false, bool ReLoadDoc = true)
+		{
+			this.Cursor = Cursors.WaitCursor;
+			try
+			{
+				// 'await' long-running method by wrapping inside Task.Run
+				await Task.Run(new Action(() =>
+				{
 					if (string.IsNullOrEmpty(this.CurrentFile) || SaveAs)
 					{
 						string IniDir = string.IsNullOrEmpty(this.CurrentFile) ?
@@ -1314,22 +1636,25 @@ namespace MyNotes
 						{
 							case ".note": Util.Serialize_ToJSON(this.CurrentFile, Document); break;
 							case ".json": Util.Serialize_ToJSON(this.CurrentFile, Document); break;
-							case ".rtf": richTextBoxEx1.SaveFile(this.CurrentFile, RichTextBoxStreamType.RichText); break;
-							case ".txt": richTextBoxEx1.SaveFile(this.CurrentFile, RichTextBoxStreamType.PlainText); break;
 							default: //TODO: Gragar en EPUB
 								break;
 						}
 
 						if (File.Exists(CurrentFile))
 						{
-							Invoke((MethodInvoker)(() =>
+							this.BeginInvoke(new Action(() =>
 							{
-								lblStatus2.Text = CurrentLanguage.GetTranslation("Saved");
-								if (ReLoadDoc) Document_Open(this.CurrentFile);
+
 							}));
 						}
 					}
-				}
+				})).ContinueWith(new Action<Task>(task =>
+				{
+					// No need to use BeginInvoke here
+					//   because ContinueWith was called with TaskScheduler.FromCurrentSynchronizationContext()
+					this.Cursor = Cursors.Default;
+					if (ReLoadDoc) Document_Open(this.CurrentFile);
+				}), TaskScheduler.FromCurrentSynchronizationContext());
 			}
 			catch (Exception ex)
 			{
@@ -1338,105 +1663,7 @@ namespace MyNotes
 			finally { this.Cursor = Cursors.Default; }
 		}
 
-		protected async void SaveDocumentAsync(bool SaveAs = false, bool ReLoadDoc = true)
-		{
-			this.Cursor = Cursors.WaitCursor;
 
-			// 'await' long-running method by wrapping inside Task.Run
-			await Task.Run(new Action(() =>
-			{
-				if (string.IsNullOrEmpty(this.CurrentFile) || SaveAs)
-				{
-					string IniDir = string.IsNullOrEmpty(this.CurrentFile) ?
-						Environment.GetFolderPath(Environment.SpecialFolder.Desktop) :
-						System.IO.Path.GetDirectoryName(this.CurrentFile);
-
-					SaveFileDialog SFDialog = new SaveFileDialog()
-					{
-						Filter = "Note Document|*.note|Json Document|*.json|EPUB Document|*.epub|RichTextFormat|*.rtf|Plain Text|*.txt",
-						FilterIndex = 0,
-						DefaultExt = "note",
-						AddExtension = true,
-						CheckPathExists = true,
-						OverwritePrompt = true,
-						InitialDirectory = IniDir
-					};
-					if (SFDialog.ShowDialog() == DialogResult.OK)
-					{
-						this.CurrentFile = SFDialog.FileName;
-
-						//TODO: Preguntar por las Propiedades del Cocumento
-					}
-				}
-
-				if (!string.IsNullOrEmpty(this.CurrentFile))
-				{
-					string Ext = System.IO.Path.GetExtension(CurrentFile); //<- Extension del archivo
-					switch (Ext)
-					{
-						case ".note": Util.Serialize_ToJSON(this.CurrentFile, Document); break;
-						case ".json": Util.Serialize_ToJSON(this.CurrentFile, Document); break;
-						default: //TODO: Gragar en EPUB
-							break;
-					}
-
-					if (File.Exists(CurrentFile))
-					{
-						this.BeginInvoke(new Action(() =>
-						{
-
-						}));
-					}
-				}
-			})).ContinueWith(new Action<Task>(task =>
-			{
-				// No need to use BeginInvoke here
-				//   because ContinueWith was called with TaskScheduler.FromCurrentSynchronizationContext()
-				this.Cursor = Cursors.Default;
-				if (ReLoadDoc) Document_Open(this.CurrentFile);
-			}), TaskScheduler.FromCurrentSynchronizationContext());
-		}
-
-		public void ShowNodeContent(object nodeInfo)
-		{
-			try
-			{
-				if (nodeInfo != null)
-				{
-					this.richTextBoxEx1.Clear();
-
-					if (nodeInfo is DocContent) //<- Is a regular Content
-					{
-						var _Content = nodeInfo as DocContent;
-						if (_Content.Content.Contains(@"{\rtf1"))
-						{
-							this.richTextBoxEx1.Rtf = _Content.Content;
-						}
-						else
-						{
-							this.richTextBoxEx1.Text = _Content.Content;
-						}
-						richTextBoxEx1.ReadOnly = false;
-					}
-
-					if (nodeInfo is DocMetadata) //<- Is the Cover
-					{
-						richTextBoxEx1.ReadOnly = false;
-						string rtf = BuildRTFCover(Document.Metadata);
-						if (!string.IsNullOrEmpty(rtf))
-						{
-							richTextBoxEx1.Rtf = rtf;
-						}
-
-						richTextBoxEx1.ReadOnly = true;
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
 
 		public string BuildRTFCover(DocMetadata pCoverData)
 		{
@@ -1537,7 +1764,7 @@ namespace MyNotes
 				if (pCoverData.GoogleDrive != null)
 				{
 					RTFlines.AppendLine(@"\par");
-					RTFlines.AppendLine(Util.GetEmbedImageString( (Bitmap)Properties.Resources.ResourceManager.GetObject("logo_drive_2020q4_color_16x16")) + " Google Drive Sync.");
+					RTFlines.AppendLine(Util.GetEmbedImageString((Bitmap)Properties.Resources.ResourceManager.GetObject("logo_drive_2020q4_color_16x16")) + " Google Drive Sync.");
 					RTFlines.AppendLine(string.Format("Last Update: {0}", Convert.ToDateTime(pCoverData.GoogleDrive.LastUpdate).ToString()));
 					RTFlines.AppendLine(@"\par");
 				}
@@ -1611,15 +1838,19 @@ namespace MyNotes
 						//Check If the user was already logged..
 						if (Directory.Exists(API.LOCAL_STORAGE))
 						{
-							//Check the last logged user:
-							FileInfo myCredentials = new DirectoryInfo(API.LOCAL_STORAGE)
-								.GetFiles("*.*").OrderByDescending(f => f.LastWriteTime).First();
-
-							if (myCredentials != null)
+							try
 							{
-								var UserData = myCredentials.Name.Split(new char[] { '-' }).ToList();
-								UserAccount = UserData[1];
+								//Check the last logged user:
+								FileInfo myCredentials = new DirectoryInfo(API.LOCAL_STORAGE)
+									.GetFiles("*.*").OrderByDescending(f => f.LastWriteTime).First();
+
+								if (myCredentials != null)
+								{
+									var UserData = myCredentials.Name.Split(new char[] { '-' }).ToList();
+									UserAccount = UserData[1];
+								}
 							}
+							catch { }
 						}
 						if (await API.Authenticate(UserAccount))
 						{
@@ -1637,6 +1868,69 @@ namespace MyNotes
 			finally { this.Cursor = Cursors.Default; }
 		}
 
+		public ControlTreeView.CTreeNode CreateTreeNodeEx(DocContent nodeInfo, string Parent, int index = -1)
+		{
+			CTreeNode _root = new CTreeNode(nodeInfo.Title, new Button() { Text = nodeInfo.Title });
+			_root.Control.Click += Control_Click;
+			_root.Control.Tag = nodeInfo;
+			_root.Tag = nodeInfo;
+			_root.ImageKey += (index >= 0) ?
+				string.Format("{0}.{1:D2}", Parent, index) :
+				Parent;
+
+			SizeF textSize = _root.GetControlFontSize(nodeInfo.Title);
+			if (textSize.Width > 70) _root.Control.Width = (int)(textSize.Width + 10);
+
+			if (nodeInfo.Childs != null)
+			{
+				int i = 0;
+				foreach (var child in nodeInfo.Childs)
+				{
+					_root.Nodes.Add(CreateTreeNodeEx(child, _root.ImageKey, i));
+					i++;
+				}
+			}
+
+			return _root;
+		}
+
+		public bool ValidateContent(AccountSecurity _Security)
+		{
+			bool _ret = false;
+			List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(CurrentLanguage.GetTranslation("Password"), "", KeyValue.ValueTypes.Password),
+				};
+			if (Util.InputBox(
+					"This Content is Protected!",
+					"Unlock Content?",
+				ref props, Base64Icons.MsgIcon.Lock, CurrentLanguage.GetTranslation("MsgButtons")) 
+				== DialogResult.OK)
+			{
+				_ret = _Security.Validate(props[0].Value);
+			}
+			return _ret;
+		}
+
+		/// <summary>Obtiene el Contenido del Nodo Actual.</summary>
+		public DocContent GetCurrentContent()
+		{
+			DocContent _ret = null;
+			try
+			{
+				var SelectedNode = this.cTreeView1.CurrentNode;
+				if (SelectedNode != null && SelectedNode.Tag is DocContent)
+				{
+					_ret = SelectedNode.Tag as DocContent;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return _ret;
+		}
+
 		#endregion
 
 		#region TreeView
@@ -1652,14 +1946,14 @@ namespace MyNotes
 		}
 		private void cTreeView1_BeforeNodeChanged(object sender, CTreeViewEventArgs e)
 		{
-			// Applies the Text on the Content of the Current Node before changing to the new one:	
-			if (cTreeView1.CurrentNode != null)
+			try
 			{
-				var nodeInfo = cTreeView1.CurrentNode.Tag as DocContent;
-				if (nodeInfo != null && this.richTextBoxEx1.Modified)
-				{
-					nodeInfo.Content = this.richTextBoxEx1.Rtf;
-				}
+				// Applies the Text on the Content of the Current Node before changing to the new one:	
+				SetCurrentChanges();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		private void cTreeView1_AfterNodeChanged(object sender, CTreeViewEventArgs e)
@@ -1673,7 +1967,7 @@ namespace MyNotes
 		{
 
 		}
-	
+
 		private void CTreeView1_Click(object sender, EventArgs e)
 		{
 			//Here we show the Content of the selected node:
@@ -1689,146 +1983,6 @@ namespace MyNotes
 		private void cTreeView1_MouseClick(object sender, MouseEventArgs e)
 		{
 
-		}
-
-		//TreeView Context Menus:
-		private void contextMenuForTreeView_Opening(object sender, CancelEventArgs e)
-		{
-			// The popup menu doesnt show for the Cover element
-			var SelectedNode = this.cTreeView1.CurrentNode;
-			if (SelectedNode != null && SelectedNode.Tag is DocMetadata)
-			{
-				e.Cancel = true;
-			}
-		}
-		
-		private void addRootItemToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			/* ADDS A NEW ITEM AT SAME LEVEL THAN THE CLICKED ONE AND AT END OF IT'S LEVEL LIST  */
-			var SelectedNode = this.cTreeView1.CurrentNode;
-			if (SelectedNode != null && SelectedNode.Tag is DocContent) //<- Excludes the Cover
-			{
-				bool IsRoot = SelectedNode.ParentNode is null;
-				int count = IsRoot ? this.cTreeView1.Nodes.Count : SelectedNode.ParentNode.Nodes.Count;
-				var _caption = string.Format("{0} {1}", CurrentLanguage.GetTranslation("NewEntry"), count);
-				var _contenido = new DocContent(0, _caption, Util.CreateSimpleRTF(_caption));
-
-				var newNode = new CTreeNode(_caption,
-							new Button()
-							{
-								Text = _caption,
-								Tag = _contenido
-							});
-				newNode.Tag = _contenido;
-				newNode.Control.Click += Control_Click;
-
-				//Fix the length of the text
-				SizeF textSize = newNode.GetControlFontSize(_caption);
-				if (textSize.Width > 70) newNode.Control.Width = (int)(textSize.Width + 10);
-
-				if (IsRoot)
-				{
-					var Path = SelectedNode.GetNodePath();
-					int CurrIndex = Path[Path.Count - 1] -1; //<- The cover doesnt counts
-
-					//Adds the new element as a Root above the Selected Node:						
-					this.cTreeView1.Nodes.Insert(SelectedNode.Index, newNode);		//<- Adds the Node to the Tree
-					this.Document.Content.Insert(CurrIndex, _contenido);			//<- Adds the node to the DataSource
-				}
-				else
-				{
-					//Locate the Parent Node in the DataSource:
-					var Path = SelectedNode.GetNodePath();
-					if (Path.Count > 0) Path.RemoveAt(Path.Count - 1); //<- last item is the SelectedNode, remove it to get the Parent
-					Path[0] = Path[0] - 1; //<- The cover doesnt counts
-
-					DocContent Parent = Util.GetItem(this.Document.Content, Path);
-					if (Parent != null)
-					{						
-						SelectedNode.ParentNode.Nodes.Insert(SelectedNode.Index, newNode);      //<- Adds the Node to the Tree
-						Parent.Childs.Insert(SelectedNode.Index-1, _contenido);					//<- Adds the node to the DataSource
-					}
-				}
-
-				//TODO: -> TV.SelectedNode = Util.FindTreeNodeByFullPath(cTreeView1.Nodes, NodePath + CurrentLanguage.GetTranslation("NewEntry"));
-			}
-		}
-		private void addSubItemToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			/* ADDS A NEW SUB-ITEM AS CHILD OF THE CLICKED ONE AND AT END OF THE LIST  */
-			var SelectedNode = this.cTreeView1.CurrentNode;
-			if (SelectedNode != null && SelectedNode.Tag is DocContent)
-			{
-				var _caption = CurrentLanguage.GetTranslation("NewEntry") + " " + SelectedNode.Nodes.Count;
-				var _contenido = new DocContent(0, _caption, Util.CreateSimpleRTF(_caption));
-				var newNode = new CTreeNode(_caption,
-							new Button()
-							{
-								Text = _caption,
-								Tag = _contenido
-							});
-				newNode.Tag = _contenido;
-				newNode.Control.Click += Control_Click;
-
-				//Fix the length of the text
-				SizeF textSize = newNode.GetControlFontSize(_caption);
-				if (textSize.Width > 70) newNode.Control.Width = (int)(textSize.Width + 10);
-
-				//Locate the Parent Node in the DataSource:
-				var Path = SelectedNode.GetNodePath();
-				Path[0] = Path[0] - 1; //<- The cover doesnt counts
-
-				DocContent Parent = Util.GetItem(this.Document.Content, Path);
-				if (Parent != null)
-				{
-					SelectedNode.Nodes.Add(newNode);      //<- Adds the Node to the Tree
-					Parent.Childs.Add(_contenido);        //<- Adds the node to the DataSource
-				}
-			}
-		}
-		private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			/* DELETE THE SELECTED ITEM */
-			var SelectedNode = this.cTreeView1.CurrentNode;
-			if (SelectedNode != null && SelectedNode.Tag is DocContent Current)
-			{
-				if (MessageBox.Show(
-					string.Format(CurrentLanguage.GetTranslation("ConfirmDelete"), Current.Title),
-					CurrentLanguage.GetTranslation("Confirm"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-				{
-					//Locate the Parent Node in the DataSource:
-					var Path = SelectedNode.GetNodePath();
-					Path[0] = Path[0] - 1; //<- The cover doesnt counts
-
-					DeleteElement(Document.Content, Path.ToArray());//<- Delete the node from the DataSource
-					this.cTreeView1.Nodes.Remove(SelectedNode);     //<- Delete the Node from the Tree
-				}
-			}
-		}
-		private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			var SelectedNode = this.cTreeView1.CurrentNode;
-			if (SelectedNode != null && SelectedNode.Tag is DocContent) //<- Excludes the Cover
-			{
-				string DefaultName = SelectedNode.Name;
-				if (Util.InputBox(CurrentLanguage.GetTranslation("Confirm"), 
-					"Enter a new name for the item:", ref DefaultName) == DialogResult.OK)
-				{
-					//Locate the Parent Node in the DataSource:
-					var Path = SelectedNode.GetNodePath();
-					Path[0] = Path[0] - 1; //<- The cover doesnt counts
-
-					RenameElement(Document.Content, Path.ToArray(), DefaultName);   //<- Rename the node from the DataSource
-					SelectedNode.Control.Text = DefaultName;                        //<- Rename the node from the Tree
-					SelectedNode.Name = DefaultName;
-				}
-			}			
-		}
-		private void mnuAutoExpandSelected_CheckStateChanged(object sender, EventArgs e)
-		{
-			this.AutoExpandSelected = (sender as ToolStripMenuItem).Checked;			
-			cTreeView1.AutoExpandSelected = this.AutoExpandSelected;
-			Util.WinReg_WriteKey("Settings", "AutoExpandSelected", this.AutoExpandSelected);
 		}
 
 		/// <summary>Remove the child element from the parent object, recursively.</summary>
@@ -1874,6 +2028,504 @@ namespace MyNotes
 				int[] subPath = path.Skip(1).ToArray();
 				RenameElement(hData[index].Childs, subPath, newName);
 			}
+		}
+
+		#endregion
+
+		#region TreeView Context Menus
+
+		private void contextMenuForTreeView_Opening(object sender, CancelEventArgs e)
+		{
+			// The popup menu doesnt show for the Cover element
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocMetadata)
+			{
+				e.Cancel = true;
+			}
+			else
+			{
+				var _Content = GetCurrentContent();
+				if (_Content != null)
+				{
+					bool IsSecured = _Content.Security != null && _Content.Security.IsSecured;
+
+					mnuCtx_ProtectedContent.Checked = IsSecured;
+					cxMenu_ProtectedContent.Checked = IsSecured;
+
+					cxMenu_AddPassword.Enabled = !IsSecured;
+					mnuCtx_AddPassword.Enabled = !IsSecured;
+
+					mnuCtx_ChangePassword.Enabled = IsSecured;
+					cxMenu_ChangePassword.Enabled = IsSecured;
+
+					mnuCtx_RemovePassword.Enabled = IsSecured;
+					cxMenu_RemovePassword.Enabled = IsSecured;
+				}				
+			}
+		}
+
+		private void addRootItemToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			/* ADDS A NEW ITEM AT SAME LEVEL THAN THE CLICKED ONE AND AT END OF IT'S LEVEL LIST  */
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocContent)
+			{
+				bool IsRoot = SelectedNode.ParentNode is null;
+				int count = IsRoot ? this.cTreeView1.Nodes.Count : SelectedNode.ParentNode.Nodes.Count;
+				string _caption = string.Format("{0} {1}", CurrentLanguage.GetTranslation("NewEntry"), count);
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> Dtypes = new List<KeyValue>
+				{
+					new KeyValue("RichText Format", "0"),
+					new KeyValue("Plain Text",      "1"),
+					new KeyValue("AccountManager",  "2")
+				};
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[0], _caption),
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[3], "0", KeyValue.ValueTypes.Dynamic)
+				};
+				props[1].DataSet = Dtypes;
+
+				#endregion
+
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("AddRootDoc"),
+					CurrentLanguage.GetTranslation("DocProps"),
+					ref props, Base64Icons.MsgIcon.AddNew, CurrentLanguage.GetTranslation("MsgButtons"))
+					 == DialogResult.OK)
+				{
+					#region Setup the Document Content
+
+					_caption = props[0].Value;
+					var DocType = (DocTypes)Convert.ToInt32(props[1].Value);
+					var _contenido = new DocContent(0, _caption);
+					_contenido.DocType = DocType;
+					if (DocType == DocTypes.RichTextFormat)
+					{
+						_contenido.Content = Util.CreateSimpleRTF(_caption);
+					}
+					if (DocType == DocTypes.PlainText)
+					{
+						_contenido.Content = _caption;
+					}
+					if (DocType == DocTypes.AccountManager)
+					{
+						_contenido.Content = Util.Serialize_ToJSON(new AccountManager());
+					}
+
+					#endregion
+
+					#region Setup the Tree Node
+
+					var newNode = new CTreeNode(_caption,
+						new Button()
+						{
+							Text = props[0].Value,
+							Tag = _contenido
+						});
+					newNode.Tag = _contenido;
+					newNode.Control.Click += Control_Click;
+
+					//Fix the length of the text in the ButtonControl:
+					SizeF textSize = newNode.GetControlFontSize(props[0].Value);
+					if (textSize.Width > 70) newNode.Control.Width = (int)(textSize.Width + 10);
+
+					#endregion
+
+					#region Set the Data
+
+					if (IsRoot)
+					{
+						var Path = SelectedNode.GetNodePath();
+						int CurrIndex = Path[Path.Count - 1] - 1; //<- The cover doesnt counts
+
+						//Adds the new element as a Root above the Selected Node:						
+						//this.cTreeView1.Nodes.Insert(SelectedNode.Index, newNode);      //<- Adds the Node to the Tree
+						//this.Document.Content.Insert(CurrIndex, _contenido);            //<- Adds the node to the DataSource
+
+						this.cTreeView1.Nodes.Add(newNode);      //<- Adds the Node to the Tree
+						this.Document.Content.Add(_contenido);            //<- Adds the node to the DataSource
+					}
+					else
+					{
+						//Locate the Parent Node in the DataSource:
+						var Path = SelectedNode.GetNodePath();
+						if (Path.Count > 0) Path.RemoveAt(Path.Count - 1); //<- last item is the SelectedNode, remove it to get the Parent
+						Path[0] = Path[0] - 1; //<- The cover doesnt counts
+
+						DocContent Parent = Util.GetItem(this.Document.Content, Path);
+						if (Parent != null)
+						{
+							SelectedNode.ParentNode.Nodes.Insert(SelectedNode.Index, newNode);      //<- Adds the Node to the Tree
+							Parent.Childs.Insert(SelectedNode.Index - 1, _contenido);               //<- Adds the node to the DataSource
+						}
+					}
+
+					#endregion
+				}
+			}
+		}
+		private void addSubItemToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			/* ADDS A NEW SUB-ITEM AS CHILD OF THE CLICKED ONE AND AT END OF THE LIST  */
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocContent)
+			{
+				var _caption = CurrentLanguage.GetTranslation("NewEntry") + " " + SelectedNode.Nodes.Count;
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> Dtypes = new List<KeyValue>
+				{
+					new KeyValue("RichText Format", "0"),
+					new KeyValue("Plain Text",      "1"),
+					new KeyValue("AccountManager",  "2")
+				};
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[0], _caption),
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[3], "0", KeyValue.ValueTypes.Dynamic)
+				};
+				props[1].DataSet = Dtypes;
+
+				#endregion
+
+				// Show the InputBox:
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("AddRootDoc"),
+					CurrentLanguage.GetTranslation("DocProps"),
+					ref props, Base64Icons.MsgIcon.AddNew, CurrentLanguage.GetTranslation("MsgButtons"))
+					== DialogResult.OK)
+				{
+					#region Setup the Document Content
+
+					_caption = props[0].Value;
+					var DocType = (DocTypes)Convert.ToInt32(props[1].Value);
+					var _contenido = new DocContent(0, _caption);
+					_contenido.DocType = DocType;
+
+					if (DocType == DocTypes.RichTextFormat)
+					{
+						_contenido.Content = Util.CreateSimpleRTF(_caption);
+					}
+					if (DocType == DocTypes.PlainText)
+					{
+						_contenido.Content = _caption;
+					}
+					if (DocType == DocTypes.AccountManager)
+					{
+						_contenido.Content = Util.Serialize_ToJSON(new AccountManager());
+					}
+
+					#endregion
+
+					#region Setup the Tree Node
+
+					var newNode = new CTreeNode(_caption,
+						new Button()
+						{
+							Text = props[0].Value,
+							Tag = _contenido
+						});
+					newNode.Tag = _contenido;
+					newNode.Control.Click += Control_Click;
+
+					//Fix the length of the text in the ButtonControl:
+					SizeF textSize = newNode.GetControlFontSize(props[0].Value);
+					if (textSize.Width > 70) newNode.Control.Width = (int)(textSize.Width + 10);
+
+					#endregion
+
+					#region Set the Data
+
+					//Locate the Parent Node in the DataSource:
+					var Path = SelectedNode.GetNodePath();
+					Path[0] = Path[0] - 1; //<- The cover doesnt counts
+
+					DocContent Parent = Util.GetItem(this.Document.Content, Path);
+					if (Parent != null)
+					{
+						SelectedNode.Nodes.Add(newNode);      //<- Adds the Node to the Tree
+						Parent.Childs.Add(_contenido);        //<- Adds the node to the DataSource
+					}
+
+					#endregion
+				}
+			}
+		}
+		private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			/* DELETE THE SELECTED ITEM */
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocContent Current)
+			{
+				if (MessageBox.Show(
+					string.Format(CurrentLanguage.GetTranslation("ConfirmDelete"), Current.Title),
+					CurrentLanguage.GetTranslation("Confirm"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					//Locate the Parent Node in the DataSource:
+					var Path = SelectedNode.GetNodePath();
+					Path[0] = Path[0] - 1; //<- The cover doesnt counts
+
+					DeleteElement(Document.Content, Path.ToArray());//<- Delete the node from the DataSource
+					this.cTreeView1.Nodes.Remove(SelectedNode);     //<- Delete the Node from the Tree
+				}
+			}
+		}
+		private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocContent) //<- Excludes the Cover
+			{
+				string _caption = SelectedNode.Name;
+				var _Content = GetCurrentContent();
+				var OldType = _Content.DocType;
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> Dtypes = new List<KeyValue>
+				{
+					new KeyValue("RichText Format", "0"),
+					new KeyValue("Plain Text",      "1"),
+					new KeyValue("AccountManager",  "2")
+				};
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[0], _caption),
+					new KeyValue(CurrentLanguage.GetTranslation("NameValue").Split('|')[3], ((int)OldType).ToString(), KeyValue.ValueTypes.Dynamic)
+				};
+				props[1].DataSet = Dtypes;
+
+				#endregion
+
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("EditItems").Split('|')[1],
+					CurrentLanguage.GetTranslation("DocProps"),
+					ref props, Base64Icons.MsgIcon.Edit, CurrentLanguage.GetTranslation("MsgButtons"))
+					== DialogResult.OK)
+				{
+					_caption = props[0].Value;
+					var NewType = (DocTypes)Convert.ToInt32(props[1].Value);
+
+					//Locate the Parent Node in the DataSource:
+					var Path = SelectedNode.GetNodePath();
+					Path[0] = Path[0] - 1; //<- The cover doesnt counts
+
+					RenameElement(Document.Content, Path.ToArray(), _caption);   //<- Rename the node from the DataSource
+					SelectedNode.Control.Text = _caption;                        //<- Rename the node from the Tree
+					SelectedNode.Name = _caption;
+					(SelectedNode.Tag as DocContent).Title = _caption;
+
+					if (OldType != NewType)
+					{
+						if (MessageBox.Show("The item type has been changed!\r\nThis can lead to loss of information if the type was downgraded.\r\nAre you sure ? ", 
+							"Confirm Change?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+						{
+							(SelectedNode.Tag as DocContent).DocType = NewType;
+						}
+					}
+				}
+			}
+		}
+		private void mnuAutoExpandSelected_CheckStateChanged(object sender, EventArgs e)
+		{
+			this.AutoExpandSelected = (sender as ToolStripMenuItem).Checked;
+			cTreeView1.AutoExpandSelected = this.AutoExpandSelected;
+			Util.WinReg_WriteKey("Settings", "AutoExpandSelected", this.AutoExpandSelected);
+		}
+
+		private void mnuCtx_AddPassword_Click(object sender, EventArgs e)
+		{
+			var SelectedNode = this.cTreeView1.CurrentNode;
+			if (SelectedNode != null && SelectedNode.Tag is DocContent)
+			{
+				string[] tr_passwords = CurrentLanguage.GetTranslation("Passwords").Split('|'); //<- Password|New Password|Old Password|Password Changed!
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(tr_passwords[1], "", KeyValue.ValueTypes.Password),
+				};
+
+				#endregion
+
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[0],
+					CurrentLanguage.GetTranslation("Q:ProtectContent"),
+					ref props, Base64Icons.MsgIcon.Lock, CurrentLanguage.GetTranslation("MsgButtons"))
+					== DialogResult.OK)
+				{
+					string _NewPassword = props[0].Value;
+					if (!string.IsNullOrEmpty(_NewPassword))
+					{
+						var _Content = GetCurrentContent();
+						if (_Content.Security is null) _Content.Security = new AccountSecurity();
+
+						if (_Content.Security.SetPassword(_NewPassword, _NewPassword))
+						{
+							MessageBox.Show(
+								string.Format(CurrentLanguage.GetTranslation("PasswordChangedResume"), _NewPassword),
+								tr_passwords[3], MessageBoxButtons.OK, MessageBoxIcon.Information
+							);
+							_Content.Content = Util.Base64_Encode(_Content.Content);
+
+							//Refresh!
+							SetCurrentChanges();
+							ShowNodeContent(_Content);
+						}
+					}
+				}
+			}
+		}
+		private void mnuCtx_ChangePassword_Click(object sender, EventArgs e)
+		{
+			var _Content = GetCurrentContent();
+			if (_Content != null)
+			{
+				string[] tr_passwords = CurrentLanguage.GetTranslation("Passwords").Split('|'); //<- Password|New Password|Old Password|Password Changed!
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(tr_passwords[2], "", KeyValue.ValueTypes.Password), //<- Old Password
+					new KeyValue(tr_passwords[1], "", KeyValue.ValueTypes.Password), //<- New Password
+				};
+
+				#endregion
+
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[1],
+					CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[3],
+				ref props, Base64Icons.MsgIcon.Lock, CurrentLanguage.GetTranslation("MsgButtons"))
+				== DialogResult.OK)
+				{
+					try
+					{
+						string OldPassword = props[0].Value;
+						string NewPassword = props[1].Value;
+
+						if (_Content.Security is null) _Content.Security = new AccountSecurity();
+						    _Content.Security.ThrowAuthErrors = true;
+						if (_Content.Security.SetPassword(NewPassword, OldPassword))
+						{
+							MessageBox.Show(
+								string.Format(CurrentLanguage.GetTranslation("PasswordChangedResume"), NewPassword),
+								tr_passwords[3], MessageBoxButtons.OK, MessageBoxIcon.Information
+							);
+							//Refresh!
+							SetCurrentChanges();
+							ShowNodeContent(_Content);
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+		}
+		private void mnuCtx_RemovePassword_Click(object sender, EventArgs e)
+		{
+			var _Content = GetCurrentContent();
+			if (_Content != null)
+			{
+				string[] tr_passwords = CurrentLanguage.GetTranslation("Passwords").Split('|'); //<- Password|New Password|Old Password|Password Changed!
+
+				#region Setup the InputBox Data
+
+				List<KeyValue> props = new List<KeyValue>
+				{
+					new KeyValue(tr_passwords[0], "", KeyValue.ValueTypes.Password), //<- Old Password
+				};
+
+				#endregion
+
+				if (Util.InputBox(
+					CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[2],
+					CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[3],
+				ref props, Base64Icons.MsgIcon.Lock, CurrentLanguage.GetTranslation("MsgButtons"))
+				== DialogResult.OK)
+				{
+					try
+					{
+						string OldPassword = props[0].Value;
+
+						if (_Content.Security is null) _Content.Security = new AccountSecurity();
+						_Content.Security.ThrowAuthErrors = true;
+						if (_Content.Security.RemovePassword(OldPassword))
+						{
+							MessageBox.Show(
+								tr_passwords[3],
+								CurrentLanguage.GetTranslation("PasswordModifications").Split('|')[2],
+								MessageBoxButtons.OK, MessageBoxIcon.Information
+							);
+							_Content.Content = Util.Base64_Decode(_Content.Content);
+							//Refresh!
+							SetCurrentChanges();
+							ShowNodeContent(_Content);
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+		}
+
+		private void cmdTreeCommands_Collapse_Click(object sender, EventArgs e)
+		{
+			this.cTreeView1.CollapseAll();
+		}
+		private void cmdTreeCommands_Expand_Click(object sender, EventArgs e)
+		{
+			this.cTreeView1.ExpandAll();
+		}
+		private void cmdTreeCommands_Settings_Click(object sender, EventArgs e)
+		{
+			//TODO
+		}
+		private void cmdTreeCommands_Click(object sender, EventArgs e)
+		{
+			/*
+			List<KeyValue> Dtypes = new List<KeyValue>
+			{
+				new KeyValue("RichText Format", "0"),
+				new KeyValue("Plain Text",      "1"),
+				new KeyValue("AccountManager",  "2")
+			};
+			var DarkMode = new KeyValue("Boolean", "true", KeyValue.ValueTypes.Boolean);
+			DarkMode.Validate += (object _control, KeyValue.ValidateEventArgs _e) =>
+			{
+				string OldValue = _e.OldValue;
+				if (_e.NewValue == "False")
+				{
+					//_e.Cancel = true;
+					_e.ErrorText = "No puede ser Falso!";
+				}
+			};
+
+			List<KeyValue> props = new List<KeyValue>
+			{
+				new KeyValue("String",	"String",	KeyValue.ValueTypes.String),
+				new KeyValue("Password","Password", KeyValue.ValueTypes.Password),
+				new KeyValue("Integer", "1000",		KeyValue.ValueTypes.Integer),
+				new KeyValue("Decimal", "3,141638", KeyValue.ValueTypes.Decimal),
+				DarkMode,
+				new KeyValue("Dynamic", "1",		KeyValue.ValueTypes.Dynamic, Dtypes),
+			};
+			if (Util.InputBox( "This Content is Protected!", "Unlock Content?",
+				ref props, Base64Icons.MsgIcon.Lock, CurrentLanguage.GetTranslation("MsgButtons"))
+				== DialogResult.OK)
+			{
+				
+			}
+			*/
 		}
 
 		#endregion
@@ -1987,7 +2639,7 @@ namespace MyNotes
 							cTreeView1.CurrentNode.Expand();
 							var PP = cTreeView1.CurrentNode.GetNodePath();
 							ShowNodeContent(cTreeView1.CurrentNode.Tag);
-						}						
+						}
 
 						_ret = searchResults.FoundNodes[searchResults.GlobalIndex].TextIndexes[searchResults.LocalIndex];
 						richTextBoxEx1.Select(_ret, toolSearchText.Text.Length);
@@ -2043,7 +2695,7 @@ namespace MyNotes
 
 		#endregion
 
-		#region Menus
+		#region Main Menus
 
 		private void mnuFile_New_Templates_Click(object sender, EventArgs e)
 		{
@@ -2277,6 +2929,7 @@ namespace MyNotes
 		{
 			richTextBoxEx1.SelectionAlignment = RichTextBoxEx.TextAlignment.Justify;
 		}
+
 		private void toolBullets_Click(object sender, EventArgs e)
 		{
 			richTextBoxEx1.SelectionBullet = !richTextBoxEx1.SelectionBullet;
@@ -2285,6 +2938,7 @@ namespace MyNotes
 		{
 			richTextBoxEx1.WordWrap = !richTextBoxEx1.WordWrap;
 		}
+
 		private void toolInsertImage_Click(object sender, EventArgs e)
 		{
 			try
@@ -2360,6 +3014,60 @@ namespace MyNotes
 
 		#endregion
 
+		#region Google Drive
+
+		private void mnuFile_OpenGdrive_Click(object sender, EventArgs e)
+		{
+			/* IMPORTS A FILE FROM GoogleDrive */
+			GDriveForm _Form = new GDriveForm(true);
+			_Form.CurrentLanguage = this.CurrentLanguage;
+
+			if (_Form.ShowDialog() == DialogResult.OK)
+			{
+				Document_Open(_Form.FilePath);
+
+				if (this.Document != null)
+				{
+					this.Document.Metadata.GoogleDrive = new GDriveInfo()
+					{
+						FileID = _Form.API.FileData.Id,
+						Name = _Form.API.FileData.Name,
+						LastUpdate = Convert.ToDateTime(_Form.API.FileData.ModifiedTimeRaw)
+					};
+					Document_Save(ReLoadDoc: false);
+				}
+			}
+		}
+		private void mnuFile_SaveGDrive_Click(object sender, EventArgs e)
+		{
+			if (this.Document != null)
+			{
+				GDriveForm _Form = new GDriveForm(false)
+				{
+					DriveInfo = this.Document.Metadata.GoogleDrive,
+					CurrentLanguage = this.CurrentLanguage,
+					FilePath = this.CurrentFile
+				};
+				if (_Form.ShowDialog() == DialogResult.OK)
+				{
+					if (this.Document != null)
+					{
+						this.Document.Metadata.GoogleDrive = new GDriveInfo()
+						{
+							FileID = _Form.API.FileData.Id,
+							Name = _Form.API.FileData.Name,
+							LastUpdate = DateTime.Now
+						};
+						Document_Save(ReLoadDoc: false);
+					}
+				}
+			}
+		}
+
+		#endregion
+
+		#region RTF
+
 		private void richTextBoxEx1_MouseMove(object sender, MouseEventArgs e)
 		{
 			//TODO: Cursor en los bordes de las Tablas
@@ -2403,132 +3111,125 @@ namespace MyNotes
 			}
 		}
 
-		private void pictureBox1_Paint(object sender, PaintEventArgs e)
+		#endregion
+
+		#region Account Manager
+
+		private void contextForLayout_Opening(object sender, CancelEventArgs e)
 		{
-			/*
-			//Obtiene los Pixeles del area imprimible (Ancho de Hoja - margenes)
-			int Pixels = (int)(PrintableWidth * e.Graphics.DpiX / 100.0f);
-
-			//Pixels = centimeters * DPI / 2.54
-			int OneCm =  (int)((1.0f * e.Graphics.DpiX) / 2.54f); //<- Pixels in 1.0cm
-			int HalfCm = (int)((0.5f * e.Graphics.DpiX) / 2.54f); //<- Pixels in 0.5cm
-
-			//Dibuja un rectangulo azul indicando el area imprimible
-			var brush = new SolidBrush(Color.FromArgb(0, 103, 184));
-			e.Graphics.FillRectangle(brush, 10, 0, Pixels, 10);
-
-			
-			// Visible Bounds on the PictureBox: H and V rulers are always shown no matter the scrolling of the Picturebox.
-			// TODO: graphic glitches when scrolling backwards.
-			var visY = Math.Abs(this.pictureBox1.Bounds.Y);
-			var visX = Math.Abs(this.pictureBox1.Bounds.X);
-
-			
-			// 2. Horizontal Ruler	
-			using (Pen pen = new Pen(Color.White, 1.0F))
+			var _Content = GetCurrentContent();
+			if (_Content != null)
 			{
-				for (int i = 0; i < Pixels; i++)
-				{
-					//if (i % HalfCm == 0) // <- Minor line (3px width) each 0.5cm
-					//{
-					//	e.Graphics.DrawLine(pen, new Point(i + 10, visY), new Point(i + 10, visY + 2));
-					//}
-					if (i % OneCm == 0) //<- Mayor Line (6px width) each 10 pixels
-					{
-						e.Graphics.DrawLine(pen, new Point(i + 10, visY), new Point(i + 10, visY + 6));
-					}
+				bool IsSecured = _Content.Security != null && _Content.Security.IsSecured;
 
-					//if (i % 5 == 0) // <- Minor line (3px width) each 5 pixels
-					//{
-					//	e.Graphics.DrawLine(pen, new Point(i, visY), new Point(i, visY + 2));
-					//}
-					//if (i % 10 == 0) //<- Mayor Line (6px width) each 10 pixels
-					//{
-					//	e.Graphics.DrawLine(pen, new Point(i, visY), new Point(i, visY + 6));
-					//}
-					//if (i % 50 == 0) //<- Number text each 50 pixels
-					//{
-					//	if (i > 0)
-					//	{
-					//		int spam = (i < 100) ? 8 : 10; //<- Horizontal span for the text, text size dependant
-					//		spam = (i >= 1000) ? 14 : spam; //<- for 1.000px and more
+				mnuCtx_ProtectedContent.Checked = IsSecured;
+				cxMenu_ProtectedContent.Checked = IsSecured;
 
-					//		e.Graphics.DrawString(i.ToString(), this.Font, brush, new Point(i - spam, visY + 7));
-					//	}
-					//}
-				}
-			}					
-			*/
-		}
-		private void pictureBox1_MouseHover(object sender, EventArgs e)
-		{
-			//ToolTip tt = new ToolTip();
-			//tt.SetToolTip(this.pictureBox1, "Printable Area");
+				cxMenu_AddPassword.Enabled = !IsSecured;
+				mnuCtx_AddPassword.Enabled = !IsSecured;
+
+				mnuCtx_ChangePassword.Enabled = IsSecured;
+				cxMenu_ChangePassword.Enabled = IsSecured;
+
+				mnuCtx_RemovePassword.Enabled = IsSecured;
+				cxMenu_RemovePassword.Enabled = IsSecured;
+			}
+
+			bool IsAccountMgr = panelAccounts.Visible && panelAccounts.Tag != null;
+
+			cxMenu_NewItem.Visible = IsAccountMgr;
+			cxMenu_Eliminar.Visible = IsAccountMgr;
+			cxMenu_FindItems.Visible = IsAccountMgr;
+			cxMenu_Sep1.Visible = IsAccountMgr;
 		}
 
-		private void cmdTreeCommands_Collapse_Click(object sender, EventArgs e)
+		private void _CTRL_OnRequestNewAccount(object sender, EventArgs e)
 		{
-			this.cTreeView1.CollapseAll();
-		}
-		private void cmdTreeCommands_Expand_Click(object sender, EventArgs e)
-		{
-			this.cTreeView1.ExpandAll();
-		}
-		private void cmdTreeCommands_Settings_Click(object sender, EventArgs e)
-		{
-			//TODO
-		}
-		private void cmdTreeCommands_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void mnuFile_OpenGdrive_Click(object sender, EventArgs e)
-		{
-			/* IMPORTS A FILE FROM GoogleDrive */
-			GDriveForm _Form = new GDriveForm(true);
-			_Form.CurrentLanguage = this.CurrentLanguage;
-
-			if (_Form.ShowDialog() == DialogResult.OK)
+			if (panelAccounts.Visible && panelAccounts.Tag != null)
 			{
-				Document_Open(_Form.FilePath);
+				AccountManager AC = panelAccounts.Tag as AccountManager;
+				if (AC.Accounts == null) AC.Accounts = new List<Account>();
 
-				if (this.Document != null)
+				var X = new Account();
+				AC.Accounts.Add(X);
+				panelAccounts.Controls.Add(new AccountControl(X, false, this.CurrentLanguage));
+			}
+		}
+		private void _CTRL_OnRequestDeleteAccount(object sender, EventArgs e)
+		{
+			if (panelAccounts.Visible && panelAccounts.Tag != null)
+			{
+				AccountManager AC = panelAccounts.Tag as AccountManager;
+				if (AC.Accounts == null || AC.Accounts.Count <= 0) return;
+
+				AccountControl _CTRL = (sender as AccountControl);
+				if (_CTRL != null)
 				{
-					this.Document.Metadata.GoogleDrive = new GDriveInfo()
-					{
-						FileID = _Form.API.FileData.Id,
-						Name = _Form.API.FileData.Name,
-						LastUpdate = Convert.ToDateTime(_Form.API.FileData.ModifiedTimeRaw)
-					};
-					Document_Save(ReLoadDoc: false);
+					AC.Accounts.Remove(_CTRL.Data);
+					panelAccounts.Controls.Remove(_CTRL);
 				}
 			}
 		}
-		private void mnuFile_SaveGDrive_Click(object sender, EventArgs e)
+
+		private void cxMenu_AddPassword_Click(object sender, EventArgs e)
 		{
-			if (this.Document != null)
-			{
-				GDriveForm _Form = new GDriveForm(false)
-				{
-					DriveInfo = this.Document.Metadata.GoogleDrive,
-					CurrentLanguage = this.CurrentLanguage,					
-					FilePath = this.CurrentFile
-				};
-				if (_Form.ShowDialog() == DialogResult.OK)
-				{
-					if (this.Document != null)
-					{
-						this.Document.Metadata.GoogleDrive = new GDriveInfo()
-						{
-							FileID = _Form.API.FileData.Id,
-							Name = _Form.API.FileData.Name,
-							LastUpdate = DateTime.Now
-						};
-						Document_Save(ReLoadDoc: false);
-					}
-				}
-			}			
+
 		}
+
+		private void cxMenu_RemovePassword_Click(object sender, EventArgs e)
+		{
+			if (panelAccounts.Visible && panelAccounts.Tag != null)
+			{
+				AccountManager AC = panelAccounts.Tag as AccountManager;
+
+			}
+		}
+
+		private void cxMenu_ChangePassword_Click(object sender, EventArgs e)
+		{
+			if (panelAccounts.Visible && panelAccounts.Tag != null)
+			{
+				AccountManager AC = panelAccounts.Tag as AccountManager;
+
+			}
+		}
+
+		private void cxMenu_FindItems_Click(object sender, EventArgs e)
+		{
+			if (panelAccounts.Visible && panelAccounts.Tag != null)
+			{
+				AccountManager AC = panelAccounts.Tag as AccountManager;
+
+			}
+		}
+
+		#endregion
+
+		private void panelAccounts_DragEnter(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent(typeof(Control)))
+			{
+				e.Effect = DragDropEffects.Move;
+			}
+		}
+		private void panelAccounts_DragDrop(object sender, DragEventArgs e)
+		{
+			Control draggedControl = e.Data.GetData(typeof(Control)) as Control;
+			if (draggedControl != null)
+			{
+				FlowLayoutPanel panel = sender as FlowLayoutPanel;
+
+				// Remove from previous panel if necessary
+				if (draggedControl.Parent != null)
+				{
+					draggedControl.Parent.Controls.Remove(draggedControl);
+				}
+
+				// Add to FlowLayoutPanel at the appropriate position
+				panel.Controls.Add(draggedControl);
+			}
+		}
+
+
 	}
 }

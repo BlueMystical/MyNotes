@@ -41,6 +41,7 @@ namespace MyNotes.Classes
 			You'll be presented with your Client ID and Client Secret on the screen.
 			Download the JSON file containing both credentials for storing securely.
 			You need to specify the path to this JSON file at the 'ClientSecrets' property of this class.
+			Place this JSON at the 'bin' folder, next to the .exe, name it: 'client_secrets.json'
 
 		2. Install Required NuGet Packages:
 			Use NuGet Package Manager to install:
@@ -48,7 +49,7 @@ namespace MyNotes.Classes
 			Google.Apis.Auth
 			Google.Apis.Oauth2.v2
 
-	Check Documentation:   https://developers.google.com/drive/api/reference/rest/v3
+	Check Documentation for Google Drive API v3:   https://developers.google.com/drive/api/reference/rest/v3
 	 */
 	public class GDriveNET : IDisposable
 	{
